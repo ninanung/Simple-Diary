@@ -1,19 +1,24 @@
 <template>
     <div>
-        <div class="page-header">
-            <h1 class="head-text">Route Login Practice</h1>
-            <nav>
+        <div class="title">
+            <h1>Siary</h1>
+        </div>
+        <div class="nav">
+            <nav v-if="!islogin">
                 <ul>
-                    <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-                    <li v-if="!islogin"><router-link :to="{ name: 'login' }">Login</router-link></li>
-                    <li v-if="!islogin"><router-link :to="{ name: 'signin' }">Signin</router-link></li>
+                    <li><router-link :to="{ name: 'login' }">Login</router-link></li>
+                    <li><router-link :to="{ name: 'signin' }">Signin</router-link></li>
                     <li><router-link :to="{ name: 'islogin' }">AmILogin?</router-link></li>
-                    <li v-if="islogin"><a @click="logout()">Logout</a></li>
                 </ul>
             </nav>
         </div>
         <div class="container">
             <router-view></router-view>
+        </div>
+        <div class="footer">
+            <p>Developer: Seungje Jun</p>
+            <p>Contact: ninanung@naver.com</p>
+            <p>Github: https://github.com/ninanung</p>
         </div>
     </div> 
 </template>
@@ -36,7 +41,10 @@ export default {
 
 <style>
     @import url("https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css");
-    .page-header {
+    .title {
+        background: white; padding: 10px 0 0 0; color: black;
+    }
+    .footer {
         background: white; padding: 10px 0 0 0; color: black;
     }
     ul {
