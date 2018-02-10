@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="body">
         <div class="title">
             <h1>Siary</h1>
         </div>
@@ -41,8 +41,12 @@ export default {
 
 <style>
     @import url("https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css");
+    .body {
+        width: 960px; margin: 0 auto;
+    }
     .title {
-        background: white; padding: 10px 0 0 0; color: black;
+        background: white; padding: 10px 0 0 0; color: EE6767;
+        font-size: 20px;
     }
     .footer {
         background: white; padding: 10px 0 0 0; color: black;
