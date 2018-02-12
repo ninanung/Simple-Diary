@@ -3,11 +3,19 @@
         <div class="title">
             <h1>Siary</h1>
         </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li v-if="!islogin"><router-link :to="{ name: 'login' }">Login</router-link></li>
+                <li v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></li>
+                <li v-if="!islogin">Please Login!</li>
+                <li v-if="islogin">Hello, { user.id }</li>
+            </ul>
+        </div>
         <div class="nav">
             <nav v-if="!islogin">
                 <ul>
-                    <li><router-link :to="{ name: 'login' }">Login</router-link></li>
-                    <li><router-link :to="{ name: 'signin' }">Signin</router-link></li>
+                    <li><router-link :to="{ name: 'today' }">Today</router-link></li>
+                    <li><router-link :to="{ name: 'signin' }"></router-link></li>
                     <li><router-link :to="{ name: 'islogin' }">AmILogin?</router-link></li>
                 </ul>
             </nav>
@@ -29,7 +37,7 @@ import constant from './constant.js';
 
 export default {
     name: 'app',
-    computed: mapState([ 'islogin' ]),
+    computed: mapState([ 'islogin', 'user' ]),
     methods: {
         logout: function() {
             this.$store.dispatch(constant.LOGOUT);
