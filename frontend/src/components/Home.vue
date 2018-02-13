@@ -25,6 +25,7 @@ export default {
     }
     .one {
         background-image: url("../../static/one.jpg");
+        background-position: center;
     }
     .two {
         background-image: url("../../static/three.jpg");
