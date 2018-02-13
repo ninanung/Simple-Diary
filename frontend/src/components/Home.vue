@@ -1,14 +1,9 @@
 <template>
     <div class="main">
-        <div id="concept" class="one">
-            <h1>Your day and my day, Siary</h1>
-        </div>
-        <div id="concept" class="two">
-            <h1>Write private or public diary</h1>
-        </div>
-        <div id="concept" class="three">
-            <h1>Show or see somebody's daily life</h1>
-        </div>
+        <h1 class="one">Your Day and My Day, Siary</h1>
+        <h1 class="two">Not an SNS, Just our normal Life</h1>
+        <h1 class="three">Write private or public Diary</h1>
+        <h1 class="four">Show or see somebody's Little Time</h1>
     </div>
 </template>
 
@@ -20,20 +15,27 @@ export default {
 
 <style scoped>
     .main {
-        margin: 0; padding: 0; border: 0; width: 100%;
+        margin: 0 auto; width: 100%;
     }
-    #concept {
-        width: 100%; height: 600px; margin: 0; padding: 0; border: 0; 
+    h1 {
+        width: 100%; height: 500px; margin: 0 auto;
         background-size: 100%;
-        background-repeat: no-repeat;
+        background-repeat: no-repeat; text-align: center;
+        padding: 200px; font-weight: bold;
     }
     .one {
-        background-image: url();
+        background-image: url("../../static/one.jpg");
     }
     .two {
-        background-image: url();
+        background-image: url("../../static/three.jpg");
+        color: #974E4E;
     }
-    three {
-        background-image: url();
+    .three {
+        background-image: url("../../static/two.jpg");
+        color: white;
+    }
+    .four {
+        background-image: url("../../static/four.jpg");
+        color: #1C2452;
     }
 </style>

@@ -1,26 +1,25 @@
 <template>
     <div class="body">
         <div class="title">
-            <h1>Siary</h1>
-        </div>
-        <div>
-            <ul class="nav navbar-nav navbar-right">
-                <li v-if="!islogin"><router-link :to="{ name: 'login' }">Login</router-link></li>
-                <li v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></li>
-                <li v-if="!islogin">Please Login!</li>
-                <li v-if="islogin">Hello, { user.id }</li>
-            </ul>
+            <div class="span">
+                <span v-if="!islogin"><router-link :to="{ name: 'login' }">Login</router-link></span>
+                <span v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></span>
+                <br/>
+                <span v-if="!islogin">Please Login!</span>
+                <span v-if="islogin">Hello, { user.id }</span>
+            </div>
+            <h1 id="title">Siary</h1>
         </div>
         <div class="nav">
-            <nav v-if="!islogin">
-                <ul>
-                    <li><router-link :to="{ name: 'today' }">Today</router-link></li>
-                    <li><router-link :to="{ name: 'signin' }"></router-link></li>
-                    <li><router-link :to="{ name: 'islogin' }">AmILogin?</router-link></li>
+            <nav>
+                <ul v-if="islogin">
+                    <li><router-link :to="{ name: 'read' }">Read</router-link></li>
+                    <li><router-link :to="{ name: 'write' }">Write</router-link></li>
+                    <li><router-link :to="{ name: 'islogin' }">Profile</router-link></li>
                 </ul>
             </nav>
         </div>
-        <div class="container">
+        <div>
             <router-view></router-view>
         </div>
         <div class="footer">
@@ -49,28 +48,37 @@ export default {
 
 <style>
     @import url("https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css");
+    #title {
+        font-size: 50px; margin-left: 20px; margin-bottom: 20px;
+        font-weight: bold; color: #3792EC;
+    }
     .body {
-        width: 960px; margin: 0 auto;
+        width: 1050px; margin: 0 auto;
     }
     .title {
         background: white; padding: 10px 0 0 0; color: EE6767;
-        font-size: 20px;
+        font-size: 20px; height: 150px;
     }
     .footer {
         background: white; padding: 10px 0 0 0; color: black;
+        margin-bottom: 20px; margin-top: 20px;
     }
     ul {
         list-style-type: none; margin: 0; padding: 0; 
-        overflow: hidden; background: black;
+        overflow: hidden; background: #37EC97;
     }
     li {
         float: left;
     }
     li a {
-        display: block; color: white; text-align: center;
+        display: block; color: #376bec; text-align: center;
         padding: 14px 16px; text-decoration: none;
+        font-weight: bold; font-size: 20px
     }
     li a:hover {
-        background: white; color: black; text-decoration: none;
+        background: white; color: #376bec; text-decoration: none;
+    }
+    .span {
+        float: right; margin-right: 10px;
     }
 </style>
