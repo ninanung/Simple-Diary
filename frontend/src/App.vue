@@ -3,6 +3,7 @@
         <div class="title">
             <div class="span">
                 <span v-if="!islogin"><router-link :to="{ name: 'login' }">Login</router-link></span>
+                <span v-if="!islogin"><router-link :to="{ name: 'signin' }">Signin</router-link></span>
                 <span v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></span>
                 <br/>
                 <span v-if="!islogin">Please Login!</span>

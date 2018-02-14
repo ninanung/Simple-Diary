@@ -93,19 +93,23 @@ export default {
     }
     button {
         width: 100px; height: 40px; background: white;
+        border: white; color: #376bec; font-size: 20px;
+        font-weight: bold;
     }
     button:hover {
-        background: black; color: white;
+        background: #376bec; color: white;
     }
     .form label {
-        text-align: left; margin: 0 0 3px 0; padding: 0;
+        text-align: left; margin: 5px; padding: 5px;
+        display: block;
         display: black; font-weight: bold;
     }
     .form input {
-        box-sizing: border-box; outline: none;
+        box-sizing: border-box; outline: none; padding: 5px;
+        display: block; margin: 5px;
     }
     .inputhead {
-        background: black; color: white; font-weight: bold;
+        color: #376bec; font-weight: bold;
         width: 400px; height: 40px; text-align: left;
     }
 </style>
