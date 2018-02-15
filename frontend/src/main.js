@@ -18,7 +18,7 @@ Vue.prototype.$axios = axios;
 const router = new VueRouter({
   mode: "history",
   routes: [
-    { path: "/", component: Home },
+    { path: "/", name: "home", component: Home },
     { path: "/main", name: "main", component: Main },
     { path: "/login", name: "login", component: Login },
     { path: "/signin", name: "signin", component: Signin },

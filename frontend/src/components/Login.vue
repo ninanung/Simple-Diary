@@ -1,7 +1,7 @@
 <template>
     <div class="modal">
         <div class="form">
-            <h1 class="inputhead">Please Login</h1>
+            <h1 class="inputhead">Login</h1>
             <hr>
             <div class="input">
                 <label>ID</label>
