@@ -12,6 +12,10 @@
                 <input @keyup.esc="cancel" @keyup.enter="signin()" class="password" type="password" v-model="password" placeholder="Password" /> 
             </div>
             <div class="input">
+                <label>Email</label>
+                <input @keyup.esc="cancel" @keyup.enter="signin()" class="email" type="email" v-model="email" placeholder="Email" />
+            </div>
+            <div class="input">
                 <button @click="signin()">Signin</button>
                 <button @click="cancel()">Cancel</button>
             </div>
@@ -30,6 +34,7 @@ export default {
         return {
             id: "",
             password: "",
+            email: "",
             isWrong: false
         }
     },
@@ -47,6 +52,9 @@ export default {
             if(this.id.length < 3) {
                 return alert("ID must be longer then 3 digits");
             }
+            else if(!this.id || !this.password || !this.email) {
+                return alert("Please write all information");
+            }
             else {
                 let words = "";
                 let error;
@@ -61,9 +69,10 @@ export default {
                         console.log(res.data);
                     }
                     if(error == "false") {
-                        this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password });
+                        this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password, email: this.email });
                         this.id = "";
                         this.password = "";
+                        this.email = "";
                         console.log("get signin");
                         return this.$router.push({ name: 'home' });
                     }

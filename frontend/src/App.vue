@@ -2,12 +2,15 @@
     <div class="body">
         <div class="title">
             <div class="span">
-                <span v-if="!islogin"><router-link :to="{ name: 'login' }">Login</router-link></span>
-                <span v-if="!islogin"><router-link :to="{ name: 'signin' }">Signin</router-link></span>
                 <span v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></span>
+                <template v-else>
+                    <span><router-link :to="{ name: 'login' }">Login</router-link></span>
+                    <span><router-link :to="{ name: 'signin' }">Signin</router-link></span>
+                </template>
+                
                 <br/>
-                <span v-if="!islogin">Please Login!</span>
                 <span v-if="islogin">Hello, { user.id }</span>
+                <span v-else>Please Login!</span>
             </div>
             <h1 id="title">Siary</h1>
         </div>
