@@ -4,10 +4,9 @@
             <div class="span">
                 <span v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></span>
                 <template v-else>
-                    <span><router-link :to="{ name: 'login' }">Login</router-link></span>
-                    <span><router-link :to="{ name: 'signin' }">Signin</router-link></span>
+                    <span><router-link class="btn btn-default" :to="{ name: 'login' }">Login</router-link></span>
+                    <span><router-link class="btn btn-default" :to="{ name: 'signin' }">Signin</router-link></span>
                 </template>
-                
                 <br/>
                 <span v-if="islogin">Hello, { user.id }</span>
                 <span v-else>Please Login!</span>
@@ -17,9 +16,12 @@
         <div class="nav">
             <nav>
                 <ul v-if="islogin">
+                    <li><router-link :to="{ name: 'home' }">Home</router-link></li>
+                    <li><router-link :to="{ name: 'main' }">Main</router-link></li>
                     <li><router-link :to="{ name: 'read' }">Read</router-link></li>
                     <li><router-link :to="{ name: 'write' }">Write</router-link></li>
-                    <li><router-link :to="{ name: 'islogin' }">Profile</router-link></li>
+                    <li><router-link :to="{ name: 'my' }">My</router-link></li>
+                    <li><router-link :to="{ name: 'profile' }">Profile</router-link></li>
                 </ul>
             </nav>
         </div>
@@ -81,6 +83,12 @@ export default {
     }
     li a:hover {
         background: white; color: #376bec; text-decoration: none;
+    }
+    .btn {
+        color: #376bec; font-weight: bold;
+    }
+    .btn:hover {
+        background: #376bec; color: white;
     }
     .span {
         float: right; margin-right: 10px;

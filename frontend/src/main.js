@@ -9,6 +9,7 @@ import Home from './components/Home.vue';
 import Signin from './components/Signin.vue';
 import IsLogin from './components/IsLogin.vue';
 import NotFound from './components/NotFound.vue';
+import Main from './components/Main.vue';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
@@ -18,10 +19,10 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/", component: Home },
-    { path: "/home", name: "home", component: Home },
+    { path: "/main", name: "main", component: Main },
     { path: "/login", name: "login", component: Login },
     { path: "/signin", name: "signin", component: Signin },
-    { path: "/islogin", name: "islogin", component: IsLogin },
+    { path: "/profile", name: "profile", component: IsLogin },
     { path: "*", component: NotFound }
   ]
 })
