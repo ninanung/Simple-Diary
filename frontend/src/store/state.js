@@ -4,5 +4,5 @@ export default {
         { id: "ninanung", password: "1004nmnm" }
     ],
     islogin: false,
-    user: { id: "", password: "" }
+    user: { id: "", email: "" }
 }

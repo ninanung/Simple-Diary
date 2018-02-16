@@ -69,11 +69,11 @@ export default {
                         console.log(res.data);
                     }
                     if(error == "false") {
-                        this.$store.dispatch(constant.SIGNIN, { id: this.id, password: this.password, email: this.email });
                         this.id = "";
                         this.password = "";
                         this.email = "";
                         console.log("get signin");
+                        alert('We send email to your address, Please check "Confirm Code"');
                         return this.$router.push({ name: 'home' });
                     }
                     else {

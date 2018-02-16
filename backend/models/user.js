@@ -5,7 +5,8 @@ const user = mongoose.Schema({
     id: { type: String, required: true, unique: true},
     password: { type: String, required: true },
     email: { type: String, required: true },
-    isConfirmed: { typr: Boolean, default: false }
+    isConfirmed: { typr: Boolean, default: false },
+    confirmWord: { type: String, required: true }
 });
 
 user.pre("save", function(next) {
@@ -19,7 +20,7 @@ user.pre("save", function(next) {
     }
 });
 
-user.methods.chechPassword = function(password) {
+user.methods.checkPassword = function(password) {
     let user = this;
     return bcrypt.compareSync(password, user.password);
 };

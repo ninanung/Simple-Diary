@@ -9,7 +9,7 @@ router.post("/", function(req, res, next) {
         error: "false",
         words: "",
         id: "",
-        password: ""
+        email: ""
     }
     User.findOne({ id: id }, function(err, user) {
         if(err) {
@@ -19,11 +19,21 @@ router.post("/", function(req, res, next) {
         }
         if(!user) {
             info.error = "true";
-            info.words = "Please Check Your ID or Password";
+            info.words = "Please Check Your ID";
+            return res.send(info);
+        }
+        if(!user.isConfirmed) {
+            info.error = "true";
+            info.words = "This User's Email is not Confirmed yet";
+            return res.send(info);
+        }
+        if(user.checkPassword(password)) {
+            info.error = "true";
+            info.words = "Please Check Your Password";
             return res.send(info);
         }
         info.id = id;
-        info.password = password;
+        info.email = user.email;
         console.log(info);
         return res.send(info);
     })

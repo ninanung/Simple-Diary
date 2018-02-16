@@ -43,7 +43,7 @@ export default {
                 words = res.data.words;
                 console.log(res.data);
                 if(error === "false") {
-                    this.$store.dispatch(constant.LOGIN, { id: this.id, password: this.password });
+                    this.$store.dispatch(constant.LOGIN, { id: this.id, email: res.data.email });
                     this.id = "";
                     this.password = "";
                     console.log("get login");

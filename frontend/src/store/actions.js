@@ -6,8 +6,5 @@ export default {
     },
     [constant.LOGOUT]: (store) => {
         store.commit(constant.LOGOUT);
-    },
-    [constant.SIGNIN]: (store, payload) => {
-        store.commit(constant.SIGNIN, payload);
     }
 }
