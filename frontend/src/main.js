@@ -10,6 +10,7 @@ import Signin from './components/Signin.vue';
 import IsLogin from './components/IsLogin.vue';
 import NotFound from './components/NotFound.vue';
 import Main from './components/Main.vue';
+import Confirm from './components/Confirm.vue';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
@@ -19,6 +20,7 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/", name: "home", component: Home },
+    { path: "/confirm", name: "confirm", component: Confirm },
     { path: "/main", name: "main", component: Main },
     { path: "/login", name: "login", component: Login },
     { path: "/signin", name: "signin", component: Signin },

@@ -66,8 +66,7 @@ router.post("/", function(req, res, next) {
                 subject: "Hi, " + id + "! This is Siary! Please confirm your Email.",
                 html:
                     "<h1>Your day, My day, Siary!</h1>" +
-                    "<br/><h2>USER CONFIRM CODE : " + word + "</h2>" +
-                    "<br/><button><a href='localhost:3000/confirm'>Confirm!</a></button>"
+                    "<br/><button><a href='localhost:3000/confirm/" + id + "/" + word + "'>Confirm!</a></button>"
             }
             transporter.sendMail(emailOption, (error, inf) => {
                 if(error) {
