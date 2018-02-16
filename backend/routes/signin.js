@@ -5,11 +5,13 @@ const User = require("../models/user.js");
 router.post("/", function(req, res, next) {
     const id = req.body.id;
     const password = req.body.password;
+    const email = req.body.email;
     let info = {
         error: "false",
         words: "",
         id: "",
-        password: ""
+        password: "",
+        email: ""
     }
     User.findOne({ id: id }, function(err, user) {
         if(err) {
@@ -24,7 +26,8 @@ router.post("/", function(req, res, next) {
         }
         let newUser = new User({
             id: id,
-            password: password
+            password: password,
+            email: email
         });
         newUser.save(function(err) {    
             if(err) {
@@ -35,6 +38,7 @@ router.post("/", function(req, res, next) {
             }
             info.id = id;
             info.password = password;
+            info.email = email;
             console.log(info);
             return res.send(info);
         })
