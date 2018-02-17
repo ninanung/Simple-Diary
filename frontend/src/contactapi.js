@@ -8,5 +8,8 @@ export default {
     },
     signin: function(id, password) {
         return axios.post(config.SIGNIN, { id: id, password: password });
+    },
+    confirm: function(id, code) {
+        return axios.post(config.CONFIRM, { id: id, code: code });
     }
 }

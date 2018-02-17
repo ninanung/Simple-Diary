@@ -66,13 +66,14 @@ router.post("/", function(req, res, next) {
                 subject: "Hi, " + id + "! This is Siary! Please confirm your Email.",
                 html:
                     "<h1>Your day, My day, Siary!</h1>" +
+                    "<br/><p>Thank you for sign in. Please go to bellow link and confirm your account.</p>" +
                     "<br/><button><a href='localhost:3000/confirm/" + id + "/" + word + "'>Confirm!</a></button>"
             }
             transporter.sendMail(emailOption, (error, inf) => {
                 if(error) {
                     info.error = "true";
                     info.words = "Email sending fail. Please check your Email.";
-                    return res.send()
+                    return res.send(info);
                 }
                 console.log(inf.messageId);
             });

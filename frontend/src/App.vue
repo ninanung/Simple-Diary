@@ -11,7 +11,7 @@
                 <span v-if="islogin">Hello, { user.id }</span>
                 <span v-else>Please Login!</span>
             </div>
-            <h1 id="title">Siary</h1>
+            <h1 id="title"><a href="/">Siary</a></h1>
         </div>
         <div class="nav">
             <nav>

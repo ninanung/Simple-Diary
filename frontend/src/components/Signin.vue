@@ -73,7 +73,7 @@ export default {
                         this.password = "";
                         this.email = "";
                         console.log("get signin");
-                        alert('We send email to your address, Please check "Confirm Code"');
+                        alert('We send email to your address, Please check "Confirm Code". If you do not confirm account, it will deleted soon');
                         return this.$router.push({ name: 'home' });
                     }
                     else {
