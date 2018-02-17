@@ -26,4 +26,9 @@ app.use('/api/confirm', confirm);
 
 http.listen(app.get("port"), function() {
     console.log("server start in " + app.get("port"));
+    //여기에 인터발로 DB데이터를 지우는 코드를 추가한다.
+    setInterval(() => {
+        return console.log('3s');
+    }, 3000);
+    console.log("ping");
 })
