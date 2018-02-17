@@ -30,7 +30,7 @@ export default {
                 }
                 else {
                     let success = res.data.words;
-                    return this.$router.push({ name: "result", params: { first: success, second: "Please, login!" } })
+                    return this.$router.push({ name: "result", params: { first: success, second: "Please, Login!" } })
                 }
             })
         }
