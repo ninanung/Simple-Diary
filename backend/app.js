@@ -8,6 +8,7 @@ const index = require("./routes/index.js");
 const login = require("./routes/login.js");
 const signin = require("./routes/signin.js");
 const confirm = require("./routes/confirm.js");
+const User = require("./models/user.js");
 
 const app = express();
 const http = require("http").Server(app);
@@ -24,11 +25,30 @@ app.use('/api/login', login);
 app.use('/api/signin', signin);
 app.use('/api/confirm', confirm);
 
+const date = new Date();
+let whatDay = date.getDay();
+
+function deleteDB(day) {
+    const functionDate = new Date();
+    const functionDay = functionDate.getDay();
+    if(parseInt(day) < parseInt(functionDay)) {
+        User.remove({ isConfirmed: false }, function(err, result) {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                console.log(result);
+                console.log("daily deleting success");
+            }
+        })
+    }
+}
+
 http.listen(app.get("port"), function() {
     console.log("server start in " + app.get("port"));
-    //여기에 인터발로 DB데이터를 지우는 코드를 추가한다.
+    console.log(whatDay);
     setInterval(() => {
-        return console.log('3s');
-    }, 3000);
-    console.log("ping");
+        deleteDB(whatDay);
+        whatDay = date.getDay();
+    }, 21600);
 })
