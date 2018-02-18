@@ -18,7 +18,7 @@ router.post("/", function(req, res, next) {
             }
             if(!user) {
                 info.error = "true";
-                info.words = "There's no account that have same id";
+                info.words = "There's no account that have same id, could be deleted by time out.";
                 return res.send(info);
             }
             if(user.isConfirmed) {
