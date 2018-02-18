@@ -5,6 +5,7 @@ const smtpTransport = require("nodemailer-smtp-transport");
 const router = express.Router();
 const User = require("../models/user.js");
 
+//email confirm(test ended)
 let transporter = nodemailer.createTransport(smtpTransport({
     service: "gmail",
     auth: {
@@ -60,6 +61,8 @@ router.post("/", function(req, res, next) {
             }
             info.id = id;
             info.email = email;
+
+            //email sending part, it will go in.
             let emailOption = {
                 from: "Siary <ninanung0503@gmail.com>",
                 to: email,
