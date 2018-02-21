@@ -6,5 +6,11 @@ export default {
     },
     [constant.LOGOUT]: (store) => {
         store.commit(constant.LOGOUT);
+    },
+    [constant.LOGINPAGE]: (store) => {
+        store.commit(constant.LOGINPAGE);
+    },
+    [constant.SIGNINPAGE]: (store) => {
+        store.commit(constant.SIGNINPAGE);
     }
 }

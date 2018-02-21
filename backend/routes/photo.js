@@ -22,5 +22,5 @@ var upload = multer({ storage: storage }).single("file");
 
 router.post("/", upload, function(req, res, next) {
     const id = req.body.id;
-    const
+    const photo = req.file.path;
 });

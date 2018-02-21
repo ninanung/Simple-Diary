@@ -1,11 +1,13 @@
 <template>
     <div class="body">
+        <login v-if="Login"></login>
+        <signin v-if="Signin"></signin>
         <div class="title">
             <div class="span">
                 <span v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></span>
                 <template v-else>
-                    <span><router-link class="btn btn-default" :to="{ name: 'login' }">Login</router-link></span>
-                    <span><router-link class="btn btn-default" :to="{ name: 'signin' }">Signin</router-link></span>
+                    <span><button class="btn btn-default" @click="loginPage()">Login</button></span>
+                    <span><button class="btn btn-default" @click="signinPage()">Signin</button></span>
                 </template>
                 <br/>
                 <span v-if="islogin">Hello, { user.id }</span>
@@ -39,14 +41,23 @@
 <script>
 import { mapState } from 'vuex'
 import constant from './constant.js';
+import Login from './components/Login.vue';
+import Signin from './components/Signin.vue';
 
 export default {
     name: 'app',
-    computed: mapState([ 'islogin', 'user' ]),
+    computed: mapState([ 'islogin', 'user', 'Login', 'Signin' ]),
+    components: { Signin, Login },
     methods: {
         logout: function() {
             this.$store.dispatch(constant.LOGOUT);
             this.$router.push({ name: 'home' });
+        },
+        loginPage: function() {
+            this.$store.dispatch(constant.LOGINPAGE);
+        },
+        signinPage: function() {
+            this.$store.dispatch(constant.SGININPAGE);
         }
     }
 }

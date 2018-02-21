@@ -1,5 +1,6 @@
 export default {
     LOGIN: "login",
     LOGOUT: "logout",
-    SIGNIN: "signin"
+    SIGNINPAGE: "signinpage",
+    LOGINPAGE: "loginpage"
 }
