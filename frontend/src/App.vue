@@ -13,7 +13,7 @@
                 <span v-if="islogin">Hello, { user.id }</span>
                 <span v-else>Please Login!</span>
             </div>
-            <h1 id="title"><a href="/">Siary</a></h1>
+            <h1><a id="title" @mouseout="changeTitleSiary()" @mouseover="changeTitleText()" href="/">{{ titleText }}</a></h1>
         </div>
         <div class="nav">
             <nav>
@@ -48,6 +48,11 @@ export default {
     name: 'app',
     computed: mapState([ 'islogin', 'user', 'Login', 'Signin' ]),
     components: { Signin, Login },
+    data: function() {
+        return {
+            titleText: "Siary"
+        }
+    },
     methods: {
         logout: function() {
             this.$store.dispatch(constant.LOGOUT);
@@ -57,7 +62,13 @@ export default {
             this.$store.dispatch(constant.LOGINPOPUP);
         },
         signinPage: function() {
-            this.$store.dispatch(constant.SGININPOPUP);
+            this.$store.dispatch(constant.SIGNINPOPUP);
+        },
+        changeTitleText: function() {
+            this.titleText = "Go to Home";
+        },
+        changeTitleSiary: function() {
+            this.titleText = "Siary";
         }
     }
 }
@@ -68,6 +79,9 @@ export default {
     #title {
         font-size: 50px; margin-left: 20px; margin-bottom: 20px;
         font-weight: bold; color: #3792EC;
+    }
+    #title:hover {
+        text-decoration: none;
     }
     .body {
         width: 1050px; margin: 0 auto;

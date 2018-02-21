@@ -1,8 +1,8 @@
 export default {
     LOGIN: "login",
     LOGOUT: "logout",
-    SIGNINPOPUP: "signinpage",
-    LOGINPOPUP: "loginpage",
-    SIGNCANCEL: "signincancel",
+    SIGNINPOPUP: "signinpopup",
+    LOGINPOPUP: "loginpopup",
+    SIGNINCANCEL: "signincancel",
     LOGINCANCEL: "logincancel"
 }

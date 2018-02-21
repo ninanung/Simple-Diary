@@ -13,14 +13,17 @@ export default {
     },
     [constant.LOGINPOPUP]: (state) => {
         state.Login = true;
+        console.log("login POPUP");
     },
     [constant.SIGNINPOPUP]: (state) => {
         state.Signin = true;
+        console.log("signin POPUP");
     },
     [constant.LOGINCANCEL]: (state) => {
         state.Login = false;
+        console.log("login CANCEL");
     },
-    [constant.SIGNCANCEL]: (state) => {
+    [constant.SIGNINCANCEL]: (state) => {
         state.Signin = false;
     }
 }

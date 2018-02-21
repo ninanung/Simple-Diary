@@ -7,16 +7,16 @@ export default {
     [constant.LOGOUT]: (store) => {
         store.commit(constant.LOGOUT);
     },
-    [constant.LOGINPAGE]: (store) => {
+    [constant.LOGINPOPUP]: (store) => {
         store.commit(constant.LOGINPOPUP);
     },
-    [constant.SIGNINPAGE]: (store) => {
+    [constant.SIGNINPOPUP]: (store) => {
         store.commit(constant.SIGNINPOPUP);
     },
     [constant.LOGINCANCEL]: (store) => {
         store.commit(constant.LOGINCANCEL);
     },
-    [constant.SIGNCANCEL]: (store) => {
-        store.commit(constant.SIGNCANCEL);
+    [constant.SIGNINCANCEL]: (store) => {
+        store.commit(constant.SIGNINCANCEL);
     }
 }
