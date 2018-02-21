@@ -83,7 +83,7 @@ export default {
             }
         },
         cancel: function() {
-            this.$router.push({ name: 'home' });
+            this.$store.dispatch(constant.SIGNINCANCEL);
         }
     }
 }

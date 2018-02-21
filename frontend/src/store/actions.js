@@ -8,9 +8,15 @@ export default {
         store.commit(constant.LOGOUT);
     },
     [constant.LOGINPAGE]: (store) => {
-        store.commit(constant.LOGINPAGE);
+        store.commit(constant.LOGINPOPUP);
     },
     [constant.SIGNINPAGE]: (store) => {
-        store.commit(constant.SIGNINPAGE);
+        store.commit(constant.SIGNINPOPUP);
+    },
+    [constant.LOGINCANCEL]: (store) => {
+        store.commit(constant.LOGINCANCEL);
+    },
+    [constant.SIGNCANCEL]: (store) => {
+        store.commit(constant.SIGNCANCEL);
     }
 }

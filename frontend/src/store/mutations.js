@@ -10,5 +10,17 @@ export default {
         state.islogin = false;
         state.user.id = "";
         state.user.email = "";
+    },
+    [constant.LOGINPOPUP]: (state) => {
+        state.Login = true;
+    },
+    [constant.SIGNINPOPUP]: (state) => {
+        state.Signin = true;
+    },
+    [constant.LOGINCANCEL]: (state) => {
+        state.Login = false;
+    },
+    [constant.SIGNCANCEL]: (state) => {
+        state.Signin = false;
     }
 }

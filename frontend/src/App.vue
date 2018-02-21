@@ -54,10 +54,10 @@ export default {
             this.$router.push({ name: 'home' });
         },
         loginPage: function() {
-            this.$store.dispatch(constant.LOGINPAGE);
+            this.$store.dispatch(constant.LOGINPOPUP);
         },
         signinPage: function() {
-            this.$store.dispatch(constant.SGININPAGE);
+            this.$store.dispatch(constant.SGININPOPUP);
         }
     }
 }
