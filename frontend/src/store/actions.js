@@ -18,5 +18,11 @@ export default {
     },
     [constant.SIGNINCANCEL]: (store) => {
         store.commit(constant.SIGNINCANCEL);
-    }
+    },
+    [constant.PHOTOPOPUP]: (store) => {
+        store.commit(constant.SIGNINPOPUP);
+    },
+    [constant.PHOTOCANCEL]: (store) => {
+        store.commit(constant.LOGINCANCEL);
+    },
 }

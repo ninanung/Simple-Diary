@@ -9,7 +9,8 @@ router.post("/", function(req, res, next) {
         error: "false",
         words: "",
         id: "",
-        email: ""
+        email: "",
+        src: ""
     }
     User.findOne({ id: id }, function(err, user) {
         if(err) {
@@ -34,6 +35,7 @@ router.post("/", function(req, res, next) {
         }
         info.id = id;
         info.email = user.email;
+        info.src = user.profilePhoto;
         console.log(info);
         return res.send(info);
     })

@@ -1,14 +1,14 @@
 <template>
     <div class="modal">
         <div class="form">
-            <h1 class="inputhead">Login</h1>
+            <h1 class="inputhead">Change Photo</h1>
             <hr>
             <div class="input">
-                <label>ID</label>
-                <input @keyup.esc="cancel" @keyup.enter="login" class="id" type="text" v-model="id" placeholder="ID" autofocus />
+                <label>Now</label>
+                <img src="{{ user.src }}" />
             </div>
             <div class="input">
-                <label>Password</label>
+                <label>Select Photo</label>
                 <input @keyup.esc="cancel" @keyup.enter="login" class="password" type="password" v-model="password" placeholder="Password" /> 
             </div>
             <div class="input">

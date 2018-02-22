@@ -4,5 +4,7 @@ export default {
     SIGNINPOPUP: "signinpopup",
     LOGINPOPUP: "loginpopup",
     SIGNINCANCEL: "signincancel",
-    LOGINCANCEL: "logincancel"
+    LOGINCANCEL: "logincancel",
+    PHOTOPOPUP: "photopopup",
+    PHOTOCANCEL: "photocancel"
 }

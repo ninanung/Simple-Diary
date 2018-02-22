@@ -11,5 +11,8 @@ export default {
     },
     confirm: function(id, code) {
         return axios.post(config.CONFIRM, { id: id, code: code });
+    },
+    changePhoto: function(id, file) {
+        return axios.post(config.CHANGEPHOTO, { id: id, file: file });
     }
 }
