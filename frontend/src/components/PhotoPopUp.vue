@@ -1,6 +1,6 @@
 <template>
     <div class="modal">
-        <div class="form">
+        <div class="form" @keyup.esc="cancel()">
             <h1 class="inputhead">Change Photo</h1>
             <hr>
             <div class="input">
@@ -9,10 +9,12 @@
             </div>
             <div class="input">
                 <label>Select Photo</label>
-                <input @keyup.esc="cancel" @keyup.enter="login" class="password" type="password" v-model="password" placeholder="Password" /> 
+                <form method="post" enctype="multipart/form-data">
+                    <input ref="photofile" type="file" name="photo" /> 
+                </form>
             </div>
             <div class="input">
-                <button @click="login()">Login</button>
+                <button @click="changePhoto()">Login</button>
                 <button @click="cancel()">Cancel</button>
             </div>
         </div>
@@ -26,36 +28,24 @@ import contactapi from '../contactapi.js';
 
 export default {
     name: "login",
-    data: function() {
-        return {
-            id: "",
-            password: "",
-        }
-    },
-    computed: mapState([ "IDs" ]),
+    computed: mapState([ "user" ]),
     methods: {
-        login: function() {
-            let words = "";
-            let error;
-            contactapi.login(this.id, this.password)
+        changePhoto: function() {
+            const file = this.$ref.photofile.files[0];
+            contactapi.changePhoto(user.id, file)
             .then((res) => {
-                error = res.data.error;
-                words = res.data.words;
-                console.log(res.data);
-                if(error === "false") {
-                    this.$store.dispatch(constant.LOGIN, { id: this.id, email: res.data.email, src: res.data.src });
-                    this.id = "";
-                    this.password = "";
-                    console.log("get login");
-                    return this.$router.push({ name: "home" });
+                if(res.data.error == "true") {
+                    return alert(res.data.word);
                 }
                 else {
-                    return alert("Please check your ID and password");
+                    this.$store.dispatch(constnat.LOGIN, { id: res.data.id, email: res.data.email, src: res.data.src });
+                    this.$store.dispatch(constant.PHOTOCANCEL);
+                    return this.$router.push({ name: "profile" });
                 }
-            });
+            })
         },
         cancel: function() {
-            this.$store.dispatch(constant.LOGINCANCEL);
+            this.$store.dispatch(constant.PHOTOCANCEL);
         }
     }
 }
@@ -66,6 +56,9 @@ export default {
         display: block; position: fixed; width: 100%; height: 100%;
         left: 0; top: 0; overflow: auto; z-index: 1;
         background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.4);
+    }
+    img {
+        width: 300px; height: 300px;
     }
     .form {
         background-color: white; margin: 100px auto;

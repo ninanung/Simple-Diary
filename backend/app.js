@@ -11,6 +11,7 @@ const login = require("./routes/login.js");
 const signin = require("./routes/signin.js");
 const confirm = require("./routes/confirm.js");
 const User = require("./models/user.js");
+const photo = require("./routes/photo.js");
 
 const app = express();
 const http = require("http").Server(app);
@@ -26,6 +27,7 @@ app.use('/', index);
 app.use('/api/login', login);
 app.use('/api/signin', signin);
 app.use('/api/confirm', confirm);
+app.use('/api/changephoto', photo);
 
 const date = new Date();
 let whatDay = date.getDay();

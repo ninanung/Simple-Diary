@@ -32,7 +32,6 @@ export default {
             password: "",
         }
     },
-    computed: mapState([ "IDs" ]),
     methods: {
         login: function() {
             let words = "";
