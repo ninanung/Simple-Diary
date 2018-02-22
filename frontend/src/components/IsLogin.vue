@@ -19,7 +19,7 @@ export default {
     computed: mapState([ "user", "Photo" ]),
     components: { PhotoPopUp },
     data: function() {
-        reutnr {
+        return {
             popup: false
         }
     }

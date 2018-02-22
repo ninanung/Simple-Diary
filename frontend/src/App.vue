@@ -20,9 +20,6 @@
                 <ul v-if="islogin">
                     <li><router-link :to="{ name: 'home' }">Home</router-link></li>
                     <li><router-link :to="{ name: 'main' }">Main</router-link></li>
-                    <li><router-link :to="{ name: 'read' }">Read</router-link></li>
-                    <li><router-link :to="{ name: 'write' }">Write</router-link></li>
-                    <li><router-link :to="{ name: 'my' }">My</router-link></li>
                     <li><router-link :to="{ name: 'profile' }">Profile</router-link></li>
                 </ul>
             </nav>

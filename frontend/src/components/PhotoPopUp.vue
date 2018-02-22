@@ -10,7 +10,7 @@
             <div class="input">
                 <label>Select Photo</label>
                 <form method="post" enctype="multipart/form-data">
-                    <input ref="photofile" type="file" name="photo" /> 
+                    <input ref="photofile" type="file" name="photo" accept=".jpeg, .jpg, .png" /> 
                 </form>
             </div>
             <div class="input">
@@ -31,6 +31,9 @@ export default {
     computed: mapState([ "user" ]),
     methods: {
         changePhoto: function() {
+            if(!this.$ref.photofile.files[0]) {
+                return alert("Please select Photo first");
+            }
             const file = this.$ref.photofile.files[0];
             contactapi.changePhoto(user.id, file)
             .then((res) => {
@@ -58,7 +61,7 @@ export default {
         background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.4);
     }
     img {
-        width: 300px; height: 300px;
+        width: 200px; height: 200px;
     }
     .form {
         background-color: white; margin: 100px auto;

@@ -22,5 +22,34 @@ var upload = multer({ storage: storage }).single("file");
 
 router.post("/", upload, function(req, res, next) {
     const id = req.body.id;
-    const photo = req.file.path;
+    let data = {
+        error: "false",
+        word: "",
+        id: "",
+        email: "",
+        src: ""
+    }
+    User.findOne({ id: id }, function(err, user) {
+        if(err) {
+            data.error = "true";
+            data.word = "Unknown server error, please try again or contact us.";
+            console.log(err);
+            return res.send(data);
+        }
+        console.log(req.file.path);
+        user.profilePhoto = req.file.path;
+        data.id = user.id;
+        data.email = user.email;
+        data.src = req.file.path;
+        user.save(function(err) {
+            if(err) {
+                data.error = "true";
+                data.word = "Unknown server error, please try again or contact us.";
+                console.log(err);
+                return res.send(data);
+            }
+            console.log(data);
+            res.send(data);
+        })
+    })
 });
