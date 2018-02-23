@@ -22,7 +22,7 @@ export default {
         return {
             popup: false
         }
-    }
+    },
     methods: {
         changePhoto: function() {
             this.$store.dispatch(constant.PHOTOPOPUP);
