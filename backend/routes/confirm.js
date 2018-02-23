@@ -25,8 +25,7 @@ router.post("/", function(req, res, next) {
             info.words = "This account already confirmed."
             return res.send(info);
         }
-        console.log("server no error");
-        if(user.code == code) {
+        if(user.confirmWord == code) {
             console.log("code same");
             info.words = "Account confirmed! Welcome to Siary!";
             user.isConfirmed = true;

@@ -27,7 +27,7 @@ import constant from '../constant.js';
 import contactapi from '../contactapi.js';
 
 export default {
-    name: "login",
+    name: "PhotoPopUp",
     computed: mapState([ "user" ]),
     methods: {
         changePhoto: function() {
@@ -59,9 +59,6 @@ export default {
         display: block; position: fixed; width: 100%; height: 100%;
         left: 0; top: 0; overflow: auto; z-index: 1;
         background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.4);
-    }
-    img {
-        width: 200px; height: 200px;
     }
     .form {
         background-color: white; margin: 100px auto;

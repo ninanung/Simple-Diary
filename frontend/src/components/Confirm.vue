@@ -23,10 +23,8 @@ export default {
     },
     methods: {
         confirm: function() {
-            console.log("function")
             contactapi.confirm(this.id, this.code)
             .then((res) => {
-                console.log(res.data);
                 if(res.data.error == "true") {
                     return alert(res.data.word + " Please try again or contact to us.");
                 }

@@ -20,9 +20,9 @@ export default {
         store.commit(constant.SIGNINCANCEL);
     },
     [constant.PHOTOPOPUP]: (store) => {
-        store.commit(constant.SIGNINPOPUP);
+        store.commit(constant.PHOTOPOPUP);
     },
     [constant.PHOTOCANCEL]: (store) => {
-        store.commit(constant.LOGINCANCEL);
+        store.commit(constant.PHOTOCANCEL);
     },
 }

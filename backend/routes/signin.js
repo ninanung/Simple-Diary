@@ -21,7 +21,7 @@ const randomConfirm = function() {
         num = Math.floor(Math.random() * 10);
         word = word + num;
     }
-    return word;
+    return word.toString();
 }
 
 router.post("/", function(req, res, next) {

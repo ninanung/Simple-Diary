@@ -2,9 +2,10 @@
     <div class="body">
         <login v-if="Login"></login>
         <signin v-if="Signin"></signin>
+        <photopopup v-if="Photo"></photopopup>
         <div class="title">
             <div class="span">
-                <span v-if="islogin"><router-link :to="{ name: 'logout' }">Logout</router-link></span>
+                <span v-if="islogin"><button class="btn btn-default" @click="logout()">Logout</button></span>
                 <template v-else>
                     <span><button class="btn btn-default" @click="loginPage()">Login</button></span>
                     <span><button class="btn btn-default" @click="signinPage()">Signin</button></span>
@@ -40,11 +41,12 @@ import { mapState } from 'vuex'
 import constant from './constant.js';
 import Login from './components/Login.vue';
 import Signin from './components/Signin.vue';
+import PhotoPopUp from './components/PhotoPopUp.vue';
 
 export default {
     name: 'app',
-    computed: mapState([ 'islogin', 'user', 'Login', 'Signin' ]),
-    components: { Signin, Login },
+    computed: mapState([ 'islogin', 'user', 'Login', 'Signin', 'Photo' ]),
+    components: { Signin, Login, PhotoPopUp },
     data: function() {
         return {
             titleText: "Siary"

@@ -5,7 +5,6 @@
         <h2>{{ user.id }}</h2>
         <h1>Your Email :</h1>
         <h2>{{ user.email }}</h2>
-        <photopopup v-if="Photo"></photopopup>
     </div>
 </template>
 
@@ -17,7 +16,6 @@ import constant from '../constant.js';
 export default {
     name: 'islogin',
     computed: mapState([ "user", "Photo" ]),
-    components: { PhotoPopUp },
     data: function() {
         return {
             popup: false
