@@ -46,7 +46,7 @@ export default {
                     this.id = "";
                     this.password = "";
                     console.log("get login");
-                    return this.$router.push({ name: "home" });
+                    return this.$store.dispatch(constant.LOGINCANCEL);
                 }
                 else {
                     return alert("Please check your ID and password");

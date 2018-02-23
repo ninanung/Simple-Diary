@@ -58,7 +58,7 @@ export default {
             else {
                 let words = "";
                 let error;
-                contactapi.signin(this.id, this.password)
+                contactapi.signin(this.id, this.password, this.email)
                 .then((res) => {
                     words = res.data.words;
                     error = res.data.error;
@@ -74,7 +74,7 @@ export default {
                         this.email = "";
                         console.log("get signin");
                         alert('We send email to your address, Please check "Confirm Code". If you do not confirm account, it will deleted next day.');
-                        return this.$router.push({ name: 'home' });
+                        return this.$store.dispatch(constant.SIGNINCANCEL);
                     }
                     else {
                         return alert(words);

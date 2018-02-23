@@ -40,7 +40,7 @@ router.post("/", function(req, res, next) {
             info.words = "Unknown Error Come Out.";
             return res.send(info);
         }
-        if(user) {
+        if(user.length > 0) {
             info.error = "true";
             info.words = "Same ID or Email Already Exist.";
             return res.send(info);

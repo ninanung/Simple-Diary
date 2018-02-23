@@ -4,7 +4,6 @@ const path = require("path");
 const mongoose = require("mongoose");
 const connectHistoryApiFallback = require("connect-history-api-fallback");
 const fs = require("fs");
-const path = require("path");
 
 const index = require("./routes/index.js");
 const login = require("./routes/login.js");

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div id="background"></div>
         <h1 id="words">Please confirm your account</h1>
         <h2 id="words">Click the button.</h2>
         <button @click="confirm()" class="btn btn-default">Confirming!</button>
@@ -16,13 +17,15 @@ export default {
             code: ""
         }
     },
-    mounted: function() {
+    created: function() {
+        this.id = "jun";
+        this.id = "kim";
         this.id = this.$router.params.id;
         this.code = this.$router.params.code;
     },
     methods: {
         confirm: function() {
-            contactapi.confrim(this.id, this.code)
+            contactapi.confirm(this.id, this.code)
             .then((res) => {
                 if(res.data.error == "true") {
                     let fail = "Confirming your account is failed. Please try again or contact to us.";
@@ -38,15 +41,21 @@ export default {
 }
 </script>
 <style scoped>
+    #background {
+        widows: 100%; height: 700px; margin: 0 auto;
+        background: url("../../../backend/static/images/comein.jpg");
+        background-position: center; background-size: 100%;
+        padding: 100px 50px;
+    }
     div {
-        widows: 100%; height: 500px; margin: 0 auto;
+        widows: 100%; margin: 0 auto;
     }
     #words {
-        text-align: center;
+        text-align: center; color: #376bec;
     }
     button {
         background: white; color: #376bec; width: 200px; height: 50px;
-        font-weight: bold;
+        font-weight: bold; margin-left: 41%; margin-right: 41%;
     }
     button:hover {
         background: #376bec; color: white;
