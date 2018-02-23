@@ -20,7 +20,7 @@ router.post("/", function(req, res, next) {
         }
         if(!user) {
             info.error = "true";
-            info.words = "Please Check Your ID";
+            info.words = "Please Check Your ID or Password";
             return res.send(info);
         }
         if(!user.isConfirmed) {
@@ -30,7 +30,7 @@ router.post("/", function(req, res, next) {
         }
         if(!user.checkPassword(password)) {
             info.error = "true";
-            info.words = "Please Check Your Password";
+            info.words = "Please Check Your ID or Password";
             return res.send(info);
         }
         info.id = id;

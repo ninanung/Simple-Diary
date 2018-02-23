@@ -1,13 +1,11 @@
 <template>
     <div>
-        <h1 id="words">{{ first }}</h1>
-        <h1 id="words">{{ second }}</h1>
+        <h1>Confirming Your account is success! Please Login!</h1>        
     </div>
 </template>
 <script>
 export default {
-    name: "result",
-    props: [ "first", "second" ]
+
 }
 </script>
 <style scoped>

@@ -1,9 +1,9 @@
 <template>
     <div class="main">
-        <img @click="changePhoto()" src="{{ user.src }}"/>
-        <h1>Your ID</h1>
+        <img @click="changePhoto()" src="../../../backend/static/images/defaultPhoto.png"/>
+        <h1>Your ID :</h1>
         <h2>{{ user.id }}</h2>
-        <h1>Your Email</h1>
+        <h1>Your Email :</h1>
         <h2>{{ user.email }}</h2>
         <photopopup v-if="Photo"></photopopup>
     </div>

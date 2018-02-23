@@ -40,16 +40,16 @@ export default {
             .then((res) => {
                 error = res.data.error;
                 words = res.data.words;
-                console.log(res.data);
                 if(error === "false") {
                     this.$store.dispatch(constant.LOGIN, { id: this.id, email: res.data.email, src: res.data.src });
                     this.id = "";
                     this.password = "";
                     console.log("get login");
-                    return this.$store.dispatch(constant.LOGINCANCEL);
+                    this.$store.dispatch(constant.LOGINCANCEL);
+                    return this.$router.push({ name: "home" });
                 }
                 else {
-                    return alert("Please check your ID and password");
+                    return alert(res.data.word);
                 }
             });
         },

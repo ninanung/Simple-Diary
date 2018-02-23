@@ -6,7 +6,7 @@ const user = mongoose.Schema({
     password: { type: String, required: true },
     email: { type: String, required: true },
     profilePhoto: { type: String, default: "../../../backend/static/images/defaultPhoto.png" },
-    isConfirmed: { typr: Boolean, default: false },
+    isConfirmed: { type: Boolean, default: false },
     confirmWord: { type: String, required: true }
 });
 

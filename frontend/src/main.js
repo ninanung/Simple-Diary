@@ -22,7 +22,7 @@ const router = new VueRouter({
   routes: [
     { path: "/", name: "home", component: Home },
     { path: "/confirm/:id/:code", name: "confirm", component: Confirm, children: [
-      { path: "result", name: "result", props: true, component: Result }
+      { path: "result", name: "result", component: Result }
     ]},
     { path: "/main", name: "main", component: Main },
     { path: "/login", name: "login", component: Login },

@@ -18,22 +18,21 @@ export default {
         }
     },
     created: function() {
-        this.id = "jun";
-        this.id = "kim";
-        this.id = this.$router.params.id;
-        this.code = this.$router.params.code;
+        this.id = this.$route.params.id;
+        this.code = this.$route.params.code;
     },
     methods: {
         confirm: function() {
+            console.log("function")
             contactapi.confirm(this.id, this.code)
             .then((res) => {
+                console.log(res.data);
                 if(res.data.error == "true") {
-                    let fail = "Confirming your account is failed. Please try again or contact to us.";
-                    return this.$router.push({ name: "result", params: { first: fail, second: res.data.words } });
+                    return alert(res.data.word + " Please try again or contact to us.");
                 }
                 else {
-                    let success = res.data.words;
-                    return this.$router.push({ name: "result", params: { first: success, second: "Please, Login!" } })
+                    console.log("confirm success");
+                    return this.$router.push({ name: "result" })
                 }
             })
         }
@@ -43,15 +42,15 @@ export default {
 <style scoped>
     #background {
         widows: 100%; height: 700px; margin: 0 auto;
-        background: url("../../../backend/static/images/comein.jpg");
-        background-position: center; background-size: 100%;
-        padding: 100px 50px;
+        background: url("../assets/comein.jpg");
+        background-position: center; background-size: 80%;
+        padding: 100px 50px; background-repeat: no-repeat;
     }
     div {
         widows: 100%; margin: 0 auto;
     }
     #words {
-        text-align: center; color: #376bec;
+        text-align: center;
     }
     button {
         background: white; color: #376bec; width: 200px; height: 50px;

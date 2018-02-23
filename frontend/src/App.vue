@@ -10,10 +10,10 @@
                     <span><button class="btn btn-default" @click="signinPage()">Signin</button></span>
                 </template>
                 <br/>
-                <span v-if="islogin">Hello, { user.id }</span>
+                <span v-if="islogin">Hello, {{ user.id }}</span>
                 <span v-else>Please Login!</span>
             </div>
-            <h1><a id="title" @mouseout="changeTitleSiary()" @mouseover="changeTitleText()" href="/">{{ titleText }}</a></h1>
+            <router-link id="title" :to="{ name: 'home' }">Siary</router-link>
         </div>
         <div class="nav">
             <nav>
@@ -60,12 +60,6 @@ export default {
         },
         signinPage: function() {
             this.$store.dispatch(constant.SIGNINPOPUP);
-        },
-        changeTitleText: function() {
-            this.titleText = "Go to Home";
-        },
-        changeTitleSiary: function() {
-            this.titleText = "Siary";
         }
     }
 }
@@ -75,7 +69,7 @@ export default {
     @import url("https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css");
     #title {
         font-size: 50px; margin-left: 20px; margin-bottom: 20px;
-        font-weight: bold; color: #3792EC;
+        font-weight: bold; color: #3792EC; text-decoration: none;
     }
     #title:hover {
         text-decoration: none;
