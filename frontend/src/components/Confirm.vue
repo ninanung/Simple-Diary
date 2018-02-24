@@ -26,7 +26,7 @@ export default {
             contactapi.confirm(this.id, this.code)
             .then((res) => {
                 if(res.data.error == "true") {
-                    return alert(res.data.word + " Please try again or contact to us.");
+                    return alert(res.data.words + " Please try again or contact to us.");
                 }
                 else {
                     console.log("confirm success");

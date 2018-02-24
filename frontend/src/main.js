@@ -21,9 +21,8 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/", name: "home", component: Home },
-    { path: "/confirm/:id/:code", name: "confirm", component: Confirm, children: [
-      { path: "result", name: "result", component: Result }
-    ]},
+    { path: "/confirm/:id/:code", name: "confirm", component: Confirm },
+    { path: "/confirm/result", name: "result", component: Result },
     { path: "/main", name: "main", component: Main },
     { path: "/login", name: "login", component: Login },
     { path: "/signin", name: "signin", component: Signin },

@@ -49,7 +49,7 @@ export default {
                     return this.$router.push({ name: "home" });
                 }
                 else {
-                    return alert(res.data.word);
+                    return alert(res.data.words);
                 }
             });
         },
