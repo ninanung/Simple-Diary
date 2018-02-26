@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <img @click="changePhoto()" src="../../../backend/static/images/defaultPhoto.png"/>
+        <img @click="changePhoto()" src="{{ user.src }}"/>
         <h1>Your ID :</h1>
         <h2>{{ user.id }}</h2>
         <h1>Your Email :</h1>
@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         changePhoto: function() {
-            this.$store.dispatch(constant.PHOTOPOPUP);
+            return this.$store.dispatch(constant.PHOTOPOPUP);
         }
     }
 }

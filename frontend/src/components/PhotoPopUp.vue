@@ -27,7 +27,7 @@ import constant from '../constant.js';
 import contactapi from '../contactapi.js';
 
 export default {
-    name: "PhotoPopUp",
+    name: "photopopup",
     computed: mapState([ "user" ]),
     methods: {
         changePhoto: function() {
