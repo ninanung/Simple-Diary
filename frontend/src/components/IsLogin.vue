@@ -15,7 +15,7 @@ import constant from '../constant.js';
 
 export default {
     name: 'islogin',
-    computed: mapState([ "user", "Photo" ]),
+    computed: mapState([ "user" ]),
     methods: {
         changePhoto: function() {
             return this.$store.dispatch(constant.PHOTOPOPUP);

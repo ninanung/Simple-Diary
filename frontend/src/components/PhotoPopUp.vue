@@ -5,7 +5,7 @@
             <hr>
             <div class="input">
                 <label>Now</label>
-                <img src="{{ user.src }}" />
+                <img :src="this.user.src" />
             </div>
             <div class="input">
                 <label>Select Photo</label>

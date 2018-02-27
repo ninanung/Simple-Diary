@@ -2,7 +2,7 @@
     <div class="body">
         <login v-if="Login"></login>
         <signin v-if="Signin"></signin>
-        <photopopup v-if="Photo"></photopopup>
+        <photo-pop-up v-if="Photo"></photo-pop-up>
         <div class="title">
             <div class="span">
                 <span v-if="islogin"><button class="btn btn-default" @click="logout()">Logout</button></span>
