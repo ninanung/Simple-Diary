@@ -16,6 +16,6 @@ export default {
     h1 {
         text-align: center; margin: 0 auto;
         font-weight: bold; color: white;
-        font-size: 20px;
+        font-size: 60px;
     }
 </style>
