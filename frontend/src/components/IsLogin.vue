@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <img @click="changePhoto()" src="{{ user.src }}"/>
+        <img @click="changePhoto()" src="../../../backend/static/images/defaultPhoto.png" />
         <h1>Your ID :</h1>
         <h2>{{ user.id }}</h2>
         <h1>Your Email :</h1>
@@ -16,11 +16,6 @@ import constant from '../constant.js';
 export default {
     name: 'islogin',
     computed: mapState([ "user", "Photo" ]),
-    data: function() {
-        return {
-            popup: false
-        }
-    },
     methods: {
         changePhoto: function() {
             return this.$store.dispatch(constant.PHOTOPOPUP);
@@ -42,6 +37,6 @@ export default {
     }
     img {
         float: right; width: 300px; height: 300px;
-        margin: 0 auto; padding: 10px;
+        margin: 0 auto; padding: 10px; margin-right: 50px;
     }
 </style>

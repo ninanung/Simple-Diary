@@ -25,7 +25,7 @@ router.post("/", function(req, res, next) {
         }
         if(!user.isConfirmed) {
             info.error = "true";
-            info.words = "This User's Email is not Confirmed yet";
+            info.words = "This account's Email is not Confirmed yet";
             return res.send(info);
         }
         if(!user.checkPassword(password)) {
