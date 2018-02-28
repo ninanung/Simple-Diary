@@ -65,8 +65,11 @@ export default {
             else if(!this.id || !this.password || !this.email || !this.repeatEmail || !this.repeatPassword) {
                 return alert("Please write all information");
             }
-            else if(this.password !== this.repeatPassword || this.email !== this.repeatEmail) {
-                return alert("Password or Email is not match with repeated one");
+            else if(this.password !== this.repeatPassword) {
+                return alert("Password is not match with repeated one");
+            }
+            else if(this.email !== this.repeatEmail) {
+                return alert("Email is not match with repeated one");
             }
             else {
                 let words = "";
