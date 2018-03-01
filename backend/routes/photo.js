@@ -6,15 +6,10 @@ const router = express.Router();
 const User = require("../models/user.js");
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, "../static/profilePhotos");
+        cb(null, "./static/profilePhoto");
     },
     filename: function(req, file, cb) {
         let filename = file.originalname;
-        if(file.mimetype === "image/jpeg") {
-            filename = filename.replace(".jpg", "");
-            filename = filename.replace(".jpeg", "");
-            filename = filename + ".jpeg";
-        }
         cb(null, filename);
     }
 });
@@ -29,6 +24,7 @@ router.post("/", upload, function(req, res, next) {
         email: "",
         src: ""
     }
+    console.log(req.file);
     User.findOne({ id: id }, function(err, user) {
         if(err) {
             data.error = "true";

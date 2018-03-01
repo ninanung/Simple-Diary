@@ -14,7 +14,7 @@
                 </form>
             </div>
             <div class="input">
-                <button @click="changePhoto()">Login</button>
+                <button @click="changePhoto()">Update</button>
                 <button @click="cancel()">Cancel</button>
             </div>
         </div>
@@ -31,17 +31,19 @@ export default {
     computed: mapState([ "user" ]),
     methods: {
         changePhoto: function() {
-            if(!this.$ref.photofile.files[0]) {
+            if(!this.$refs.photofile.files[0]) {
                 return alert("Please select Photo first");
             }
-            const file = this.$ref.photofile.files[0];
-            contactapi.changePhoto(user.id, file)
+            let formdata = new FormData();
+            formdata.append("file", this.$refs.photofile.files[0]);
+            formdata.append("id", this.user.id);
+            contactapi.changePhoto(formdata)
             .then((res) => {
                 if(res.data.error == "true") {
                     return alert(res.data.word);
                 }
                 else {
-                    this.$store.dispatch(constnat.LOGIN, { id: res.data.id, email: res.data.email, src: res.data.src });
+                    this.$store.dispatch(constant.LOGIN, { id: res.data.id, email: res.data.email, src: res.data.src });
                     this.$store.dispatch(constant.PHOTOCANCEL);
                     return this.$router.push({ name: "profile" });
                 }
