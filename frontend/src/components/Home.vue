@@ -24,19 +24,19 @@ export default {
         padding: 200px; font-weight: bold;
     }
     .one {
-        background-image: url("../../static/one.jpg");
+        background-image: url("../assets/one.jpg");
         background-position: center;
     }
     .two {
-        background-image: url("../../static/three.jpg");
+        background-image: url("../assets/three.jpg");
         color: #974E4E;
     }
     .three {
-        background-image: url("../../static/two.jpg");
+        background-image: url("../assets/two.jpg");
         color: white;
     }
     .four {
-        background-image: url("../../static/four.jpg");
+        background-image: url("../assets/four.jpg");
         color: #1C2452;
     }
 </style>
