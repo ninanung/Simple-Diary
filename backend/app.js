@@ -42,6 +42,7 @@ function deleteDB(day) {
             else {
                 console.log(result);
                 console.log("daily deleting success");
+                whatDay = functionDate.getDay();
             }
         })
     }
@@ -52,6 +53,5 @@ http.listen(app.get("port"), function() {
     console.log(whatDay);
     setInterval(() => {
         deleteDB(whatDay);
-        whatDay = date.getDay();
-    }, 21600);
+    }, 21600000 );
 })

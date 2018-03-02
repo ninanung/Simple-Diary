@@ -6,7 +6,7 @@ const router = express.Router();
 const User = require("../models/user.js");
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, "./public/static/profilePhoto");
+        cb(null, "./public/upload/profilePhoto");
     },
     filename: function(req, file, cb) {
         let filename = file.originalname;
@@ -36,7 +36,7 @@ router.post("/", upload, function(req, res, next) {
         user.profilePhoto = req.file.path;
         data.id = user.id;
         data.email = user.email;
-        data.src = "./" + req.file.path;
+        data.src = "/" + req.file.path;
         user.save(function(err) {
             if(err) {
                 data.error = "true";
