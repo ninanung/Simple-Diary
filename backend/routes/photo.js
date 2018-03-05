@@ -32,7 +32,10 @@ router.post("/", upload, function(req, res, next) {
             console.log(err);
             return res.send(data);
         }
-        console.log(req.file.path);
+        if(user.profilePhoto !== "../../static/defaultPhoto.png") {
+            fs.unlinkSync("./" + user.profilePhoto);
+            console.log("profile photo deleted!");
+        }
         user.profilePhoto = req.file.path;
         data.id = user.id;
         data.email = user.email;
