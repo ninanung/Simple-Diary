@@ -12,6 +12,7 @@ import NotFound from './components/NotFound.vue';
 import Main from './components/Main.vue';
 import Confirm from './components/Confirm.vue';
 import Result from './components/Result.vue';
+import Write from './components/Write.vue';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
@@ -27,6 +28,7 @@ const router = new VueRouter({
     { path: "/login", name: "login", component: Login },
     { path: "/signin", name: "signin", component: Signin },
     { path: "/profile", name: "profile", component: IsLogin },
+    { path: "/write", name: "write", component: Write },
     { path: "*", component: NotFound }
   ]
 })

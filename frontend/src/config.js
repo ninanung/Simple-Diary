@@ -2,5 +2,6 @@ export default {
     LOGIN: "/api/login",
     SIGNIN: "/api/signin",
     CONFIRM: "/api/confirm",
-    CHANGEPHOTO: "/api/changephoto"
+    CHANGEPHOTO: "/api/changephoto",
+    WRITEDIARY: "/api/writediary"
 }

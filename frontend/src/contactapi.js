@@ -14,5 +14,8 @@ export default {
     },
     changePhoto: function(formdata) {
         return axios.post(config.CHANGEPHOTO, formdata);
+    },
+    writeDiary: function(formdata) {
+        return axios.post(config.WRITEDIARY, formdata);
     }
 }
