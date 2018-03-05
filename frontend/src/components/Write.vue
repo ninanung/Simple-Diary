@@ -7,8 +7,8 @@
             <input ref="photos" type="file" accept=".jpg, .jpeg, .png" />
         </form>
         <div class="buttons">
-            <button class="btn btn-default" id="public">Show All</button>
-            <button class="btn btn-default" id="private">Just For Me</button>
+            <button class="btn btn-default" @click="write()" id="public">Show All</button>
+            <button class="btn btn-default" @click="write()" id="private">Just For Me</button>
         </div>
     </div>
 </template>
@@ -27,8 +27,13 @@ export default {
             text: ""
         }
     },
+    mounted: function() {
+        this.id = this.user.id;
+    },
     methods: {
+        write: function() {
 
+        }
     }
 }
 </script>
@@ -62,7 +67,7 @@ export default {
     }
     textarea {
         width: 50%; margin-left: 25%; margin-right: 25%;
-        min-width: 300px; height: 400px;
+        min-width: 300px; height: 400px; border: 2px solid #376bec;
     }
     .body {
         margin: 0 auto;
