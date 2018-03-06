@@ -32,7 +32,20 @@ export default {
     },
     methods: {
         write: function() {
-
+            let formdata = new FormData();
+            if(this.$refs.photofile.files.length > 0) {
+                formdata.append("files", this.$refs.photofile.files);
+            }
+            formdata.append("id", this.user.id);
+            contactapi.write(formdata);
+            .then((res) => {
+                if(res.data.error == "true") {
+                    return alert(res.data.word);
+                }
+                else {
+                    return this.$router.push({ name: "main" });
+                }
+            })
         }
     }
 }
