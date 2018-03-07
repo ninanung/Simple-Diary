@@ -37,7 +37,7 @@ export default {
                 formdata.append("files", this.$refs.photofile.files);
             }
             formdata.append("id", this.user.id);
-            contactapi.write(formdata);
+            contactapi.writeDiary(formdata);
             .then((res) => {
                 if(res.data.error == "true") {
                     return alert(res.data.word);
