@@ -7,8 +7,8 @@
             <form class="form" method="post" enctype="multipart/form-data">
                 <input multiple="multiple" type="file" @change="addImage" @drop="addImage" accept=".jpg, .jpeg, .png" />
             </form>
-            <h3 class="dragtext">Drag and Drop!</h3>
-            <h3 class="dragtext">(or just click)</h3>
+            <h3>Drag and Drop!</h3>
+            <h3>(or just click)</h3>
         </div>
         <div class="buttons">
             <button class="btn btn-default" @click="write()" id="public">Show All</button>
@@ -51,7 +51,7 @@ export default {
             let formdata = new FormData();
             formdata.append("files", this.files);
             formdata.append("id", this.user.id);
-            contactapi.writeDiary(formdata);
+            contactapi.writeDiary(formdata)
             .then((res) => {
                 if(res.data.error == "true") {
                     return alert(res.data.word);
@@ -94,12 +94,16 @@ export default {
         margin: 0 auto;
     }
     .draganddrop {
-        text-align: center; display: inline-block; margin: 20px 0 20px 60px;
+        display: inline-block; margin: 20px 0 20px 60px;
         width: 50%; margin-left: 25%; margin-right: 25%;
         height: 400px; border: 1px solid #376bec;
     }
     .draganddrop input {
         width: 100%; height: 100%; opacity: 0;
+        z-index: 2; margin: 0;
+    }
+    .draganddrop h3 {
+        color: #376bec; font-weight: bold; text-align: center;
         z-index: 1;
     }
 </style>
