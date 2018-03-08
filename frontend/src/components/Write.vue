@@ -3,9 +3,13 @@
         <h1 id="title">What happen to your day?</h1>
         <textarea v-model="text"></textarea>
         <h2 id="phototitle">If you have photos to show!</h2>
-        <form class="form" method="post" enctype="multipart/form-data">
-            <input ref="photos" type="file" accept=".jpg, .jpeg, .png" />
-        </form>
+        <div class="draganddrop">
+            <form class="form" method="post" enctype="multipart/form-data">
+                <input multiple="multiple" type="file" @change="addImage" @drop="addImage" accept=".jpg, .jpeg, .png" />
+            </form>
+            <h3 class="dragtext">Drag and Drop!</h3>
+            <h3 class="dragtext">(or just click)</h3>
+        </div>
         <div class="buttons">
             <button class="btn btn-default" @click="write()" id="public">Show All</button>
             <button class="btn btn-default" @click="write()" id="private">Just For Me</button>
@@ -24,18 +28,28 @@ export default {
     data: function() {
         return {
             id: "",
-            text: ""
+            text: "",
+            files: []
         }
     },
     mounted: function() {
         this.id = this.user.id;
     },
     methods: {
+        addImage: function(event) {
+            let fileArray = event.target.files;
+            if(fileArray.length > 1) {
+                for (let index = 0; index < fileArray.length; index++) {
+                    this.files.push(fileArray[index]);
+                }
+            }
+            else {
+                this.files.push(fileArray[0]);
+            }
+        },
         write: function() {
             let formdata = new FormData();
-            if(this.$refs.photofile.files.length > 0) {
-                formdata.append("files", this.$refs.photofile.files);
-            }
+            formdata.append("files", this.files);
             formdata.append("id", this.user.id);
             contactapi.writeDiary(formdata);
             .then((res) => {
@@ -62,12 +76,6 @@ export default {
         text-align: center; width: 50%; padding: 10px;
         margin-left: 25%; margin-right: 25%;
     }
-    .form {
-        text-align: center;
-    }
-    .form input {
-        display: inline-block; margin: 20px 0 20px 60px;
-    }
     .buttons {
         text-align: center;
     }
@@ -84,5 +92,14 @@ export default {
     }
     .body {
         margin: 0 auto;
+    }
+    .draganddrop {
+        text-align: center; display: inline-block; margin: 20px 0 20px 60px;
+        width: 50%; margin-left: 25%; margin-right: 25%;
+        height: 400px; border: 1px solid #376bec;
+    }
+    .draganddrop input {
+        width: 100%; height: 100%; opacity: 0;
+        z-index: 1;
     }
 </style>
