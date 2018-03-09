@@ -29,3 +29,9 @@ When user signin, server get users own email address and send account confirming
 ![confirm](https://postfiles.pstatic.net/MjAxODAzMDNfOTAg/MDAxNTIwMDg3MDUzNjg0.Df1-IsYFPNDGonEjsGN9gBPElcCXPbAivB4c4apKBp0g.6iYwfHY1Rc4u4NyNwr2jG38NdDYIpc0-SplSJ2HYYt8g.PNG.ninanung/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2018-03-03_23.22.25.png?type=w773)  
 5. Now user can login.  
 ![login](https://postfiles.pstatic.net/MjAxODAzMDNfMTU5/MDAxNTIwMDg3MDUzNTU4.DxrqBEItOYPARmnQxA21e3TwPEdLjUb_vGh4R7ZbzJ8g.B-RhF1pXNg4dtJ4KdhZXyYu29H7QQfQHf3fPi4cI6fog.PNG.ninanung/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2018-03-03_23.22.58.png?type=w773)  
+
+---------------------------
+## What i have to remember!  
+
+1. Vue.js's store is not kinda session storage. Someone can think 'Hey, of course it is not!'. Yes, sorry, i didn't know that! In web browser, refresh make stroe clear. If you want to make store some login data or other thing, you should use localstorage or sessionstorage. I recomend session.  
+  
