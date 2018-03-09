@@ -34,4 +34,24 @@ When user signin, server get users own email address and send account confirming
 ## What i have to remember!  
 
 1. Vue.js's store is not kinda session storage. Someone can think 'Hey, of course it is not!'. Yes, sorry, i didn't know that! In web browser, refresh make stroe clear. If you want to make store some login data or other thing, you should use localstorage or sessionstorage. I recomend session.  
-  
+
+2. SessionStorage can't store object. So, store stringified object and parse as JSON when use. This is code.  
+```javascript
+export default {
+    name: 'home',
+    mounted: function() {
+        var user = {
+            id: "ninanung",
+            password: "1004nmnm"
+        };
+        window.sessionStorage.user = JSON.stringify(user);
+    },
+    methods: {
+        seeSession: function() {
+            var user = JSON.parse(window.sessionStorage.user);
+            console.log(user.id);
+            console.log(user.password);
+        }
+    }
+}
+```
