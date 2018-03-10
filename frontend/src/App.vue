@@ -46,13 +46,24 @@ import PhotoPopUp from './components/PhotoPopUp.vue';
 
 export default {
     name: 'app',
-    computed: mapState([ 'islogin', 'user', 'Login', 'Signin', 'Photo' ]),
+    computed: mapState([ 'Login', 'Signin', 'Photo' ]),
     components: { Signin, Login, PhotoPopUp },
     data: function() {
         return {
             titleText: "Siary"
+            islogin: false,
+            user: {
+                id: "",
+                email: ""
+            }
         }
     },
+    mounted: function() {
+        const user = JSON.parse(window.sessionStorage.user);
+        this.islogin = window.sessionStorage.islogin;
+        this.user.id = user.id;
+        this.user.email = user.email;
+    }
     methods: {
         logout: function() {
             this.$store.dispatch(constant.LOGOUT);
