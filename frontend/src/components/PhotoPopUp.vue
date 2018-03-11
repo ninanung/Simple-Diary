@@ -5,7 +5,7 @@
             <hr>
             <div class="input">
                 <label>Now</label>
-                <img :src="this.user.src" />
+                <img :src="this.src" />
             </div>
             <div class="input">
                 <label>Select Photo</label>
@@ -28,7 +28,15 @@ import contactapi from '../contactapi.js';
 
 export default {
     name: "photopopup",
-    computed: mapState([ "user" ]),
+    data: function() {
+        return {
+            src: ""
+        }
+    },
+    mounted: function() {
+        const user = JSON.parse(window.sessionStorage.user);
+        this.src = user.src;
+    },
     methods: {
         changePhoto: function() {
             if(!this.$refs.photofile.files[0]) {

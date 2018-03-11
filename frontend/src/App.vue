@@ -22,7 +22,7 @@
                     <li><router-link :to="{ name: 'home' }">Home</router-link></li>
                     <li><router-link :to="{ name: 'main' }">Main</router-link></li>
                     <li><router-link :to="{ name: 'profile' }">Profile</router-link></li>
-                    <li><router-link :to="{ name: 'write' }">Write</router-link></li>
+                    <li><router-link :to="{ name: 'write', params: { id: this.user.id } }">Write</router-link></li>
                 </ul>
             </nav>
         </div>
@@ -51,7 +51,7 @@ export default {
     data: function() {
         return {
             titleText: "Siary"
-            islogin: false,
+            islogin: ""
             user: {
                 id: "",
                 email: ""
@@ -60,9 +60,10 @@ export default {
     },
     mounted: function() {
         const user = JSON.parse(window.sessionStorage.user);
-        this.islogin = window.sessionStorage.islogin;
+        if(window.sessionStorage.islogin == "true") {
+            this.islogin = window.sessionStorage.islogin;
+        }
         this.user.id = user.id;
-        this.user.email = user.email;
     }
     methods: {
         logout: function() {

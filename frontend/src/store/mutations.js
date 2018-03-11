@@ -2,16 +2,16 @@ import constant from '../constant.js';
 
 export default {
     [constant.LOGIN]: (state, payload) => {
-        state.islogin = true;
-        state.user.id = payload.id;
-        state.user.email = payload.email;
-        state.user.src = payload.src;
+        let user = {
+            id: payload.id,
+            email: payload.email,
+            src: payload.src
+        }
+        window.sessionStorage.user = JSON.stringify(user);
+        window.sessionStorage.islogin = "true";
     },
     [constant.LOGOUT]: (state) => {
-        state.islogin = false;
-        state.user.id = "";
-        state.user.email = "";
-        state.user.src = "";
+        window.sessionStorage.clear();
     },
     [constant.LOGINPOPUP]: (state) => {
         state.Login = true;

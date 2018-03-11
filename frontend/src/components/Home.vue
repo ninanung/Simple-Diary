@@ -4,7 +4,6 @@
         <h1 class="two">Not an SNS, Just our normal Life</h1>
         <h1 class="three">Write private or public Diary</h1>
         <h1 class="four">Show or see somebody's Little Time</h1>
-        <button @click="seeSession">session storage!</button>
     </div>
 </template>
 

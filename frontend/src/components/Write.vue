@@ -24,16 +24,11 @@ import { mapState } from 'vuex';
 
 export default {
     name: "write",
-    computed: mapState([ "user" ]),
+    props: [ "id" ],
     data: function() {
         return {
-            id: "",
-            text: "",
             files: []
         }
-    },
-    mounted: function() {
-        this.id = this.user.id;
     },
     methods: {
         addImage: function(event) {
@@ -48,9 +43,10 @@ export default {
             }
         },
         write: function() {
+            console.log(this.id);
             let formdata = new FormData();
             formdata.append("files", this.files);
-            formdata.append("id", this.user.id);
+            formdata.append("id", this.id);
             contactapi.writeDiary(formdata)
             .then((res) => {
                 if(res.data.error == "true") {

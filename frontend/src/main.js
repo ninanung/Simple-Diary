@@ -28,7 +28,7 @@ const router = new VueRouter({
     { path: "/login", name: "login", component: Login },
     { path: "/signin", name: "signin", component: Signin },
     { path: "/profile", name: "profile", component: IsLogin },
-    { path: "/write", name: "write", component: Write },
+    { path: "/write/:id", name: "write", component: Write, props: true },
     { path: "*", component: NotFound }
   ]
 })
