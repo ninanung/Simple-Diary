@@ -3,7 +3,7 @@
         <div class="form" @keyup.esc="cancel()">
             <h1 class="inputhead">Change Photo</h1>
             <hr>
-            <div class="input">
+            <div class="image">
                 <label>Now</label>
                 <img :src="this.src" />
             </div>
@@ -30,11 +30,13 @@ export default {
     name: "photopopup",
     data: function() {
         return {
+            id: "",
             src: ""
         }
     },
     mounted: function() {
         const user = JSON.parse(window.sessionStorage.user);
+        this.id = user.id;
         this.src = user.src;
     },
     methods: {
@@ -44,7 +46,7 @@ export default {
             }
             let formdata = new FormData();
             formdata.append("file", this.$refs.photofile.files[0]);
-            formdata.append("id", this.user.id);
+            formdata.append("id", this.id);
             contactapi.changePhoto(formdata)
             .then((res) => {
                 if(res.data.error == "true") {
@@ -53,6 +55,7 @@ export default {
                 else {
                     this.$store.dispatch(constant.LOGIN, { id: res.data.id, email: res.data.email, src: res.data.src });
                     this.$store.dispatch(constant.PHOTOCANCEL);
+                    window.location.reload(false);
                     return this.$router.push({ name: "profile" });
                 }
             })
@@ -95,5 +98,11 @@ export default {
     .inputhead {
         color: #376bec; font-weight: bold;
         width: 400px; height: 40px; text-align: left;
+    }
+    .image {
+        width: 100%; height: 100%;
+    }
+    .image img {
+        width: 100%; height: 100%;
     }
 </style>

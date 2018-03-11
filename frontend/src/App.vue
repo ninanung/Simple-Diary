@@ -50,8 +50,8 @@ export default {
     components: { Signin, Login, PhotoPopUp },
     data: function() {
         return {
-            titleText: "Siary"
-            islogin: ""
+            titleText: "Siary",
+            islogin: "",
             user: {
                 id: "",
                 email: ""
@@ -59,15 +59,18 @@ export default {
         }
     },
     mounted: function() {
-        const user = JSON.parse(window.sessionStorage.user);
-        if(window.sessionStorage.islogin == "true") {
-            this.islogin = window.sessionStorage.islogin;
+        if(window.sessionStorage.user) {
+            const user = JSON.parse(window.sessionStorage.user);
+            if(window.sessionStorage.islogin == "true") {
+                this.islogin = window.sessionStorage.islogin;
+            }
+            this.user.id = user.id;
         }
-        this.user.id = user.id;
-    }
+    },
     methods: {
         logout: function() {
             this.$store.dispatch(constant.LOGOUT);
+            window.location.reload(false);
             this.$router.push({ name: 'home' });
         },
         loginPage: function() {

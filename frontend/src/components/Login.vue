@@ -46,6 +46,7 @@ export default {
                     this.password = "";
                     console.log("get login");
                     this.$store.dispatch(constant.LOGINCANCEL);
+                    window.location.reload(false);
                     return this.$router.push({ name: "home" });
                 }
                 else {

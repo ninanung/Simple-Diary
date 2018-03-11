@@ -4,12 +4,23 @@ const fs = require("fs");
 
 const router = express.Router();
 const User = require("../models/user.js");
+
+const randomConfirm = function() {
+    let word = "";
+    let num = "";
+    for(let i = 0; i < 6; i++) {
+        num = Math.floor(Math.random() * 10);
+        word = word + num;
+    }
+    return word.toString();
+}
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, "./upload/profilePhoto");
+        cb(null, "./public/static");
     },
     filename: function(req, file, cb) {
-        let filename = file.originalname;
+        let filename = randomConfirm() + file.originalname;
         cb(null, filename);
     }
 });
@@ -33,13 +44,13 @@ router.post("/", upload, function(req, res, next) {
             return res.send(data);
         }
         if(user.profilePhoto !== "../../static/defaultPhoto.png") {
-            fs.unlinkSync("./" + user.profilePhoto);
+            fs.unlinkSync("./public/static/" + user.profilePhoto);
             console.log("profile photo deleted!");
         }
-        user.profilePhoto = req.file.path;
+        user.profilePhoto = req.file.filename;
         data.id = user.id;
         data.email = user.email;
-        data.src = "/" + req.file.path;
+        data.src = "../../static/" + req.file.filename;
         user.save(function(err) {
             if(err) {
                 data.error = "true";
