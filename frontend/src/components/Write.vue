@@ -4,14 +4,14 @@
         <textarea v-model="text"></textarea>
         <h2 id="phototitle">If you have photos to show!</h2>
         <div class="draganddrop">
-            <input id="inputFile" multiple="multiple" type="file" @change="addImage($event.target.files)" @drop="addImage($event.target.files)" accept=".jpg, .jpeg, .png" />
+            <input ref="inputFile" multiple="multiple" type="file" @change="addImage($event.target.files)" @drop="addImage($event.target.files)" accept=".jpg, .jpeg, .png" />
             <h3>Drag and Drop!</h3>
             <h3>(or just click)</h3>
-            <h3>Max is 10 photos</h3>
+            <h3>10 photos Max</h3>
         </div>
         <div class="buttons">
-            <button class="btn btn-default" @click="write()" id="public">Show All</button>
-            <button class="btn btn-default" @click="write()" id="private">Just For Me</button>
+            <button class="btn btn-default" @click="write(true)" id="public">Show All</button>
+            <button class="btn btn-default" @click="write(false)" id="private">Just For Me</button>
         </div>
     </div>
 </template>
@@ -26,13 +26,14 @@ export default {
     props: [ "id" ],
     data: function() {
         return {
+            text: "",
             files: []
         }
     },
     methods: {
         addImage: function(inputFiles) {
             if(inputFiles.length > 10) {
-                document.getElementById("inputFile").value = null;
+                this.$refs.inputFile.value = null;
                 return alert("Please less than 10 Photo");
             }
             else if(11 > inputFiles.length > 1) {
@@ -45,11 +46,13 @@ export default {
             }
             console.log(files);
         },
-        write: function() {
+        write: function(isPublic) {
             console.log(this.id);
             let formdata = new FormData();
             formdata.append("files", this.files);
             formdata.append("id", this.id);
+            formdata.append("text", this.text);
+            formdata.append("isPublic", isPublic);
             contactapi.writeDiary(formdata)
             .then((res) => {
                 if(res.data.error == "true") {
