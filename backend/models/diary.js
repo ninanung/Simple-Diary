@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const user = mongoose.Schema({
+const diary = mongoose.Schema({
     id: { type: String, required: true },
     date: { type: String, require: true },
     photos: [{ type: String }],
@@ -8,4 +8,4 @@ const user = mongoose.Schema({
     isPublic: { type: Boolean, default: true }
 });
 
-module.exports = mongoose.model("User", user);
+module.exports = mongoose.model("Diary", diary);

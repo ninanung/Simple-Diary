@@ -50,7 +50,7 @@ router.post("/", upload, function(req, res, next) {
         user.profilePhoto = req.file.filename;
         data.id = user.id;
         data.email = user.email;
-        data.src = "../../static/" + req.file.filename;
+        data.src = "../../static/profilePhoto/" + req.file.filename;
         user.save(function(err) {
             if(err) {
                 data.error = "true";

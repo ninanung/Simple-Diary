@@ -5,9 +5,7 @@
         <h2 id="phototitle">If you have photos to show!</h2>
         <div class="draganddrop">
             <input ref="inputFile" multiple="multiple" type="file" @change="addImage($event.target.files)" @drop="addImage($event.target.files)" accept=".jpg, .jpeg, .png" />
-            <h3>Drag and Drop!</h3>
-            <h3>(or just click)</h3>
-            <h3>10 photos Max</h3>
+            <h4>Drag and Drop! or just Click! 10 Photos Max</h4>
         </div>
         <div class="buttons">
             <button class="btn btn-default" @click="write(true)" id="public">Show All</button>
@@ -42,7 +40,7 @@ export default {
                 }
             }
             else {
-                this.files.push(files[0]);
+                this.files.push(inputFiles[0]);
             }
             console.log(files);
         },
