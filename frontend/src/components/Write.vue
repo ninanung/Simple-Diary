@@ -4,11 +4,10 @@
         <textarea v-model="text"></textarea>
         <h2 id="phototitle">If you have photos to show!</h2>
         <div class="draganddrop">
-            <form class="form" method="post" enctype="multipart/form-data">
-                <input multiple="multiple" type="file" @change="addImage" @drop="addImage" accept=".jpg, .jpeg, .png" />
-            </form>
+            <input id="inputFile" multiple="multiple" type="file" @change="addImage($event.target.files)" @drop="addImage($event.target.files)" accept=".jpg, .jpeg, .png" />
             <h3>Drag and Drop!</h3>
             <h3>(or just click)</h3>
+            <h3>Max is 10 photos</h3>
         </div>
         <div class="buttons">
             <button class="btn btn-default" @click="write()" id="public">Show All</button>
@@ -31,16 +30,20 @@ export default {
         }
     },
     methods: {
-        addImage: function(event) {
-            let fileArray = event.target.files;
-            if(fileArray.length > 1) {
-                for (let index = 0; index < fileArray.length; index++) {
-                    this.files.push(fileArray[index]);
+        addImage: function(inputFiles) {
+            if(inputFiles.length > 10) {
+                document.getElementById("inputFile").value = null;
+                return alert("Please less than 10 Photo");
+            }
+            else if(11 > inputFiles.length > 1) {
+                for (let index = 0; index < inputFiles.length; index++) {
+                    this.files.push(inputFiles[index]);
                 }
             }
             else {
-                this.files.push(fileArray[0]);
+                this.files.push(files[0]);
             }
+            console.log(files);
         },
         write: function() {
             console.log(this.id);
@@ -92,7 +95,7 @@ export default {
     .draganddrop {
         display: inline-block; margin: 20px 0 20px 60px;
         width: 50%; margin-left: 25%; margin-right: 25%;
-        height: 400px; border: 1px solid #376bec;
+        height: 250px; border: 1px solid #376bec;
     }
     .draganddrop input {
         width: 100%; height: 100%; opacity: 0;

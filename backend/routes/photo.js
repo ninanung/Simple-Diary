@@ -17,7 +17,7 @@ const randomConfirm = function() {
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, "./public/static");
+        cb(null, "./public/static/profilePhoto");
     },
     filename: function(req, file, cb) {
         let filename = randomConfirm() + file.originalname;
@@ -43,7 +43,7 @@ router.post("/", upload, function(req, res, next) {
             console.log(err);
             return res.send(data);
         }
-        if(user.profilePhoto !== "../../static/defaultPhoto.png") {
+        if(user.profilePhoto !== "../../static/profilePhoto/defaultPhoto.png") {
             fs.unlinkSync("./public/static/" + user.profilePhoto);
             console.log("profile photo deleted!");
         }
