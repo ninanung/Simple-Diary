@@ -4,13 +4,29 @@ Siary is just simple diary for everyone. It is still processing, so i don't know
 Login and Signin.  
 1.User can write post any time any day.  
 2.If user want, can make people read(or hide) user's own post.  
-3.User can set profile(that have photo) and change.  
+~~3.User can set profile(that have photo) and change.~~(Done)  
 4.In post, user can use photos. If i can, also videos.  
 5.I want to make this like SNS page(not a board).  
 ~~6.When user make account, server send Email. After confirm email, user can login.~~(Done)  
 That's it.  
 
 And this is test project for my Vue.js, Express practice.  
+
+-------------------------------
+## 3. Profile setting.
+
+Multer and Formdata in javascript.  
+
+All our service's account get is only ID and Email, so i didn't make user can change both two, but profile photo. 
+
+1. When account be made, profile photo is default image.  
+![profile](https://postfiles.pstatic.net/MjAxODAzMTNfMTEz/MDAxNTIwOTAxNTY0MjI5.SQqOmk80ODuJRviGT5GtUSEmPIImj9SsY1O_UrUHhbIg.j0tIhlgaLelTWmY5d4Ewtjn9ip61IpLirQVPn9wV1d0g.PNG.ninanung/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2018-03-13_09.26.36.png?type=w773)  
+2. Click the image will make pop up modal form.  
+![popup](https://postfiles.pstatic.net/MjAxODAzMTNfMjA3/MDAxNTIwOTAxNTY0MjM5.yE2Q5AN_gnPx_002_f5zTgwDHdiZPvB9HpfdNts4dW0g.kJ-Takug3F2Sl4TqypueKv5oHVd3BeRCMWPhDDOj0I8g.PNG.ninanung/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2018-03-13_09.26.58.png?type=w773)  
+3. Choose one photo and done. Profile photo changed.  
+![changed](https://postfiles.pstatic.net/MjAxODAzMTNfNDAg/MDAxNTIwOTAxNTY0MjY1.BglMm8bpi36Q6XTQ2kJkU5lddcOtCGKSHIssfG38Qwog.OFU29gVHYgUQy1B_koLLwieJ4jXn2w82IfKT9b0XoCsg.PNG.ninanung/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2018-03-13_09.28.59.png?type=w773)  
+
+I know image's balance is weird. I will fix that.  
 
 -------------------------------
 ## 6. Email function.  
@@ -60,9 +76,9 @@ export default {
 ## What i Use  
 
 ### Platform  
-- Node.js
-- MongoDB
-- Vue.js
+> - Node.js
+> - MongoDB
+> - Vue.js
 
 ### Module
 > Frontend
