@@ -5,23 +5,23 @@
             <hr>
             <div class="input">
                 <label>ID</label>
-                <input @keyup.esc="cancel" @keyup.enter="signin()" type="text" v-model="id" placeholder="ID" autofocus />
+                <input type="text" v-model="id" placeholder="ID" autofocus />
             </div>
             <div class="input">
                 <label>Password</label>
-                <input @keyup.esc="cancel" @keyup.enter="signin()" type="password" v-model="password" placeholder="Password" /> 
+                <input type="password" v-model="password" placeholder="Password" /> 
             </div>
             <div class="input">
                 <label>Repeat Password</label>
-                <input @keyup.esc="cancel" @keyup.enter="signin()" type="password" v-model="repeatPassword" placeholder="Repeat Password" /> 
+                <input type="password" v-model="repeatPassword" placeholder="Repeat Password" /> 
             </div>
             <div class="input">
                 <label>Email</label>
-                <input @keyup.esc="cancel" @keyup.enter="signin()" type="email" v-model="email" placeholder="Email" />
+                <input type="email" v-model="email" placeholder="Email" />
             </div>
             <div class="input">
                 <label>Repeat Email</label>
-                <input @keyup.esc="cancel" @keyup.enter="signin()" type="email" v-model="repeatEmail" placeholder="Repeat Email" />
+                <input type="email" v-model="repeatEmail" placeholder="Repeat Email" />
             </div>
             <div class="input">
                 <button @click="signin()">Signin</button>

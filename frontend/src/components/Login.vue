@@ -1,15 +1,15 @@
 <template>
     <div class="modal">
-        <div class="form">
+        <div @keyup.esc="cancel" @keyup.enter="login" class="form">
             <h1 class="inputhead">Login</h1>
             <hr>
             <div class="input">
                 <label>ID</label>
-                <input @keyup.esc="cancel" @keyup.enter="login" class="id" type="text" v-model="id" placeholder="ID" autofocus />
+                <input class="id" type="text" v-model="id" placeholder="ID" autofocus />
             </div>
             <div class="input">
                 <label>Password</label>
-                <input @keyup.esc="cancel" @keyup.enter="login" class="password" type="password" v-model="password" placeholder="Password" /> 
+                <input class="password" type="password" v-model="password" placeholder="Password" /> 
             </div>
             <div class="input">
                 <button @click="login()">Login</button>

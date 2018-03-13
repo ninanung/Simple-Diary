@@ -55,3 +55,28 @@ export default {
     }
 }
 ```
+
+-------------------
+## What i Use  
+
+### Platform  
+- Node.js
+- MongoDB
+- Vue.js
+
+### Module
+> Frontend
+>> - "axios": "^0.17.1",
+>> - "vue": "^2.5.2",
+>> - "vue-router": "^3.0.1",
+>> - "vuex": "^3.0.1"
+
+> Backend
+>> - "bcrypt": "^1.0.3",
+>> - "body-parser": "^1.18.2",
+>> - "connect-history-api-fallback": "^1.5.0",
+>> - "express": "^4.16.2",
+>> - "mongoose": "^5.0.2",
+>> - "multer": "^1.3.0",
+>> - "nodemailer": "^4.4.2",
+>> - "nodemailer-smtp-transport": "^2.7.4"
