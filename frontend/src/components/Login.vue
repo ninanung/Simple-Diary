@@ -74,11 +74,11 @@ export default {
     }
     button {
         width: 100px; height: 40px; background: white;
-        border: white; color: #376bec; font-size: 20px;
+        border: white; color: #997053; font-size: 20px;
         font-weight: bold;
     }
     button:hover {
-        background: #376bec; color: white;
+        background: #997053; color: white;
     }
     .form label {
         text-align: left; margin: 5px; padding: 5px;
@@ -90,7 +90,7 @@ export default {
         display: block; margin: 5px;
     }
     .inputhead {
-        color: #376bec; font-weight: bold;
+        color: #997053; font-weight: bold;
         width: 400px; height: 40px; text-align: left;
     }
 </style>

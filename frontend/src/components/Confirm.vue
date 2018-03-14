@@ -51,10 +51,10 @@ export default {
         text-align: center;
     }
     button {
-        background: white; color: #376bec; width: 200px; height: 50px;
+        background: white; color: #997053; width: 200px; height: 50px;
         font-weight: bold; margin-left: 41%; margin-right: 41%;
     }
     button:hover {
-        background: #376bec; color: white;
+        background: #997053; color: white;
     }
 </style>

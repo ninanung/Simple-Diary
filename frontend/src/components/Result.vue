@@ -11,7 +11,7 @@ export default {
 <style scoped>
     div {
         width: 100%; margin: 0 auto; height: 500px;
-        background: #376bec; padding: 200px 20px;
+        background: #997053; padding: 200px 20px;
     }
     h1 {
         text-align: center; margin: 0 auto;

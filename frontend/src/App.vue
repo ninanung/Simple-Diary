@@ -87,7 +87,7 @@ export default {
     @import url("https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css");
     #title {
         font-size: 50px; margin-left: 20px; margin-bottom: 20px;
-        font-weight: bold; color: #3792EC; text-decoration: none;
+        font-weight: bold; color: #997053; text-decoration: none;
     }
     #title:hover {
         text-decoration: none;
@@ -105,7 +105,7 @@ export default {
     }
     ul {
         list-style-type: none; margin: 0; padding: 0; 
-        overflow: hidden; background: #376bec;
+        overflow: hidden; background: #997053;
     }
     li {
         float: left;
@@ -116,13 +116,13 @@ export default {
         font-weight: bold; font-size: 20px
     }
     li a:hover {
-        background: white; color: #376bec; text-decoration: none;
+        background: white; color: #997053; text-decoration: none;
     }
     .btn {
-        color: #376bec; font-weight: bold;
+        color: #997053; font-weight: bold;
     }
     .btn:hover {
-        background: #376bec; color: white;
+        background: #997053; color: white;
     }
     .span {
         float: right; margin-right: 10px;

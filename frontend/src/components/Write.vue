@@ -67,12 +67,12 @@ export default {
 
 <style scoped>
     #title {
-        color: white; background: #376bec; font-weight: bold;
+        color: white; background: #997053; font-weight: bold;
         text-align: center; width: 70%; padding: 10px;
         margin-left: 15%; margin-right: 15%;
     }
     #phototitle {
-        color: white; background: #376bec; font-weight: bold;
+        color: white; background: #997053; font-weight: bold;
         text-align: center; width: 50%; padding: 10px;
         margin-left: 25%; margin-right: 25%;
     }
@@ -80,15 +80,15 @@ export default {
         text-align: center;
     }
     .buttons button {
-        background: white; color: #376bec; font-weight: bold;
+        background: white; color: #997053; font-weight: bold;
         margin-right: 10px; display: inline-block;
     }
     .buttons button:hover {
-        background: #376bec; color: white;
+        background: #997053; color: white;
     }
     textarea {
         width: 50%; margin-left: 25%; margin-right: 25%;
-        min-width: 300px; height: 400px; border: 2px solid #376bec;
+        min-width: 300px; height: 400px; border: 2px solid #997053;
     }
     .body {
         margin: 0 auto;
@@ -96,14 +96,14 @@ export default {
     .draganddrop {
         display: inline-block; margin: 20px 0 20px 60px;
         width: 50%; margin-left: 25%; margin-right: 25%;
-        height: 250px; border: 1px solid #376bec;
+        height: 250px; border: 1px solid #997053;
     }
     .draganddrop input {
         width: 100%; height: 100%; opacity: 0;
         z-index: 2; margin: 0;
     }
     .draganddrop h3 {
-        color: #376bec; font-weight: bold; text-align: center;
+        color: #997053; font-weight: bold; text-align: center;
         z-index: 1;
     }
 </style>
