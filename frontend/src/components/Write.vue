@@ -4,9 +4,14 @@
         <textarea v-model="text"></textarea>
         <h2 id="phototitle">If you have photos to show!</h2>
         <div class="draganddrop">
-            <input ref="inputFile" multiple="multiple" type="file" @change="addImage($event.target.files)" @drop="addImage($event.target.files)" accept=".jpg, .jpeg, .png" />
+            <input ref="inputFile" multiple="multiple" type="file" @change="addImage()" @drop="addImage()" accept=".jpg, .jpeg, .png" />
             <h4>Drag and Drop! or just Click! 10 Photos Max</h4>
+            <div v-if="filesname.length > 0" class="filelist">
+                <div v-for="filename in filesname"><h4>{{filename}}</h4></div>
+            </div>
         </div>
+        <br>
+        <br>
         <div class="buttons">
             <button class="btn btn-default" @click="write(true)" id="public">Show All</button>
             <button class="btn btn-default" @click="write(false)" id="private">Just For Me</button>
@@ -25,24 +30,21 @@ export default {
     data: function() {
         return {
             text: "",
-            files: []
+            files: [],
+            filesname: []
         }
     },
     methods: {
-        addImage: function(inputFiles) {
-            if(inputFiles.length > 10) {
+        addImage: function() {
+            if(this.$refs.inputFile.files.length > 10) {
                 this.$refs.inputFile.value = null;
                 return alert("Please less than 10 Photo");
             }
-            else if(11 > inputFiles.length > 1) {
-                for (let index = 0; index < inputFiles.length; index++) {
-                    this.files.push(inputFiles[index]);
-                }
+            for (let index = 0; index < this.$refs.inputFile.files.length; index++) {
+                this.files.push(this.$refs.inputFile.files[index]);
+                this.filesname.push(this.$refs.inputFile.files[index].name);
+                console.log(this.$refs.inputFile.files[index]);
             }
-            else {
-                this.files.push(inputFiles[0]);
-            }
-            console.log(files);
         },
         write: function(isPublic) {
             console.log(this.id);
@@ -67,12 +69,12 @@ export default {
 
 <style scoped>
     #title {
-        color: white; background: #997053; font-weight: bold;
+        color: #599953; font-weight: bold;
         text-align: center; width: 70%; padding: 10px;
         margin-left: 15%; margin-right: 15%;
     }
     #phototitle {
-        color: white; background: #997053; font-weight: bold;
+        color: #599953; font-weight: bold;
         text-align: center; width: 50%; padding: 10px;
         margin-left: 25%; margin-right: 25%;
     }
@@ -80,15 +82,15 @@ export default {
         text-align: center;
     }
     .buttons button {
-        background: white; color: #997053; font-weight: bold;
+        background: white; color: #599953; font-weight: bold;
         margin-right: 10px; display: inline-block;
     }
     .buttons button:hover {
-        background: #997053; color: white;
+        background: #599953; color: white;
     }
     textarea {
         width: 50%; margin-left: 25%; margin-right: 25%;
-        min-width: 300px; height: 400px; border: 2px solid #997053;
+        min-width: 300px; height: 400px; border: 2px solid #599953;
     }
     .body {
         margin: 0 auto;
@@ -96,14 +98,14 @@ export default {
     .draganddrop {
         display: inline-block; margin: 20px 0 20px 60px;
         width: 50%; margin-left: 25%; margin-right: 25%;
-        height: 250px; border: 1px solid #997053;
+        height: 250px; border: 1px solid #599953;
     }
     .draganddrop input {
         width: 100%; height: 100%; opacity: 0;
         z-index: 2; margin: 0;
     }
-    .draganddrop h3 {
-        color: #997053; font-weight: bold; text-align: center;
+    .draganddrop h4 {
+        color: #599953; font-weight: bold; text-align: center;
         z-index: 1;
     }
 </style>
