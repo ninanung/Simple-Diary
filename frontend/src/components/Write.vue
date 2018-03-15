@@ -6,9 +6,9 @@
         <div class="draganddrop">
             <input ref="inputFile" multiple="multiple" type="file" @change="addImage()" @drop="addImage()" accept=".jpg, .jpeg, .png" />
             <h4>Drag and Drop! or just Click! 10 Photos Max</h4>
-            <div v-if="filesname.length > 0" class="filelist">
-                <div v-for="filename in filesname"><h4>{{filename}}</h4></div>
-            </div>
+        </div>
+        <div v-if="filesname.length > 0" class="filelist">
+            <div @click="deletelist(index)" v-for="(filename, index) in filesname"><h4>{{filename}}(Click to Delete)</h4></div>
         </div>
         <br>
         <br>
@@ -35,6 +35,10 @@ export default {
         }
     },
     methods: {
+        deletelist: function(index) {
+            this.filesname.splice(index, 1);
+            this.files.splice(index, 1);
+        },
         addImage: function() {
             if(this.$refs.inputFile.files.length > 10) {
                 this.$refs.inputFile.value = null;
@@ -43,8 +47,9 @@ export default {
             for (let index = 0; index < this.$refs.inputFile.files.length; index++) {
                 this.files.push(this.$refs.inputFile.files[index]);
                 this.filesname.push(this.$refs.inputFile.files[index].name);
-                console.log(this.$refs.inputFile.files[index]);
             }
+            this.$refs.inputFile.value = null;
+            console.log(this.files);
         },
         write: function(isPublic) {
             console.log(this.id);
@@ -82,11 +87,11 @@ export default {
         text-align: center;
     }
     .buttons button {
-        background: white; color: #599953; font-weight: bold;
+        background: white; color: #997053; font-weight: bold;
         margin-right: 10px; display: inline-block;
     }
     .buttons button:hover {
-        background: #599953; color: white;
+        background: #997053; color: white;
     }
     textarea {
         width: 50%; margin-left: 25%; margin-right: 25%;
@@ -107,5 +112,18 @@ export default {
     .draganddrop h4 {
         color: #599953; font-weight: bold; text-align: center;
         z-index: 1;
+    }
+    .filelist {
+        border: 1px solid #997053; width: 70%; margin-left: 15%;
+        margin-right: 15%; margin-top: 20px; margin-bottom: 20px;
+    }
+    .filelist div {
+        margin: 5px 0 5px 0;
+    }
+    .filelist h4 {
+        margin: 0 auto; color: #997053; text-align: center;
+    }
+    .filelist h4:hover {
+        background: #997053; color: white;
     }
 </style>
