@@ -12,6 +12,10 @@ That's it.
 
 And this is test project for my Vue.js, Express practice.  
 
+## REstart!
+
+Now is 5/25 and i want to start this project again!
+
 -------------------------------
 ## 3. Profile setting.
 
